@@ -1,0 +1,9 @@
+angular\spring\ngspring\model\Ospite.class
+angular\spring\ngspring\model\PrenotazioneCamera.class
+angular\spring\ngspring\model\Servizio.class
+angular\spring\ngspring\model\Cliente.class
+angular\spring\ngspring\model\RepCamera.class
+angular\spring\ngspring\model\Camera.class
+angular\spring\ngspring\model\TipologiaCamera.class
+angular\spring\ngspring\model\Soggiorno.class
+angular\spring\ngspring\NgspringApplication.class
