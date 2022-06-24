@@ -1,6 +1,5 @@
 package angular.spring.ngspring.model;
 
-
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
@@ -13,29 +12,29 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="PrenotazioneCamera")
+@Table(name = "PrenotazioneCamera")
 public class PrenotazioneCamera
 {
+
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;    
-    @Column(name="dataInizio")
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "dataInizio")
     private LocalDate dataInizio;
-    @Column(name="dataFine")
+    @Column(name = "dataFine")
     private LocalDate dataFine;
-    @Column(name="prezzo")
+    @Column(name = "prezzo")
     private Integer prezzo;
     @ManyToOne
-    @JoinColumn(name="idCamera",nullable=false)
+    @JoinColumn(name = "idCamera", nullable = false)
     private Camera camera;
     @ManyToOne
-    @JoinColumn(name="idTipologiaCamera")
+    @JoinColumn(name = "idTipologiaCamera")
     private TipologiaCamera tipologiaCamera;
     @ManyToOne
-    @JoinColumn(name="idCliente")
+    @JoinColumn(name = "idCliente")
     private Cliente cliente;
 
     @Override
@@ -65,8 +64,6 @@ public class PrenotazioneCamera
         return Objects.equals(this.id, other.id);
     }
 
-    
-    
     public Long getId()
     {
         return id;
@@ -96,8 +93,6 @@ public class PrenotazioneCamera
     {
         this.dataFine = dataFine;
     }
-
-    
 
     public Integer getPrezzo()
     {
@@ -145,10 +140,4 @@ public class PrenotazioneCamera
         return "PrenotazioneCamera{" + "id=" + id + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine + ", prezzo=" + prezzo + ", camera=" + camera + ", tipologiaCamera=" + tipologiaCamera + ", cliente=" + cliente + '}';
     }
 
-    
-    
-    
-            
-    
 }
-

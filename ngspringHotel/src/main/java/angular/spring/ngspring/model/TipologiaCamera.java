@@ -1,4 +1,3 @@
-
 package angular.spring.ngspring.model;
 
 import java.util.ArrayList;
@@ -15,21 +14,22 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="TipologiaCamera")
+@Table(name = "TipologiaCamera")
 public class TipologiaCamera
 {
+
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Integer id;
-    @Column(name="nome")
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "nome")
     private String nome;
-    @Column(name="descrizione")
+    @Column(name = "descrizione")
     private String descrizione;
-    @Column(name="costoC")
+    @Column(name = "costoC")
     private Integer costoC;
-    @OneToMany(mappedBy="tipologiaCamera",
-            fetch = FetchType.LAZY)        
+    @OneToMany(mappedBy = "tipologiaCamera",
+            fetch = FetchType.LAZY)
     private List<Camera> arrCamera = new ArrayList<>();
 
     @Override
@@ -59,12 +59,12 @@ public class TipologiaCamera
         return Objects.equals(this.id, other.id);
     }
 
-    public Integer getId()
+    public Long getId()
     {
         return id;
     }
 
-    public void setId(Integer id)
+    public void setId(Long id)
     {
         this.id = id;
     }
@@ -114,8 +114,5 @@ public class TipologiaCamera
     {
         return "TipologiaCamera{" + "id=" + id + ", nome=" + nome + ", descrizione=" + descrizione + ", costoC=" + costoC + ", arrCamera=" + arrCamera + '}';
     }
-    
-    
-    
-}
 
+}

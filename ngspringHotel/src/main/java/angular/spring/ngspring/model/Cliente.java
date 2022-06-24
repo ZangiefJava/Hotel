@@ -1,4 +1,3 @@
-
 package angular.spring.ngspring.model;
 
 import java.io.Serializable;
@@ -21,6 +20,7 @@ import javax.persistence.Table;
 @Table(name = "Cliente")
 public class Cliente implements Serializable
 {
+
     //PROPERTIES
     @Id
     @Column(name = "id")
@@ -40,6 +40,7 @@ public class Cliente implements Serializable
     private String password;
     @Column(name = "dataNascita")
     private LocalDate dataNascita;
+
     /*
     @OneToMany(mappedBy = "cliente",
             fetch = FetchType.LAZY)
@@ -47,7 +48,7 @@ public class Cliente implements Serializable
     @OneToMany(mappedBy = "cliente",
             fetch = FetchType.LAZY)
     private List<PrenotazioneCamera> arrPrenCamera = new ArrayList<>();
-    */
+     */
     //GET & SET
     public Long getId()
     {
@@ -103,7 +104,7 @@ public class Cliente implements Serializable
     {
         return user;
     }
-    
+
     public void setUser(String user)
     {
         this.user = user;
@@ -128,6 +129,7 @@ public class Cliente implements Serializable
     {
         this.dataNascita = dataNascita;
     }
+
     /*
     public List<PrenotazioneCamera> getArrPrenCamera()
     {
@@ -148,7 +150,7 @@ public class Cliente implements Serializable
     {
         this.arrPrenRisto = arrPrenRisto;
     }
-    */
+     */
     //EQUALS & HASHCODE
     @Override
     public int hashCode()
@@ -183,11 +185,5 @@ public class Cliente implements Serializable
     {
         return "Cliente{" + "nome=" + nome + ", cognome=" + cognome + ", codiceFiscale=" + codiceFiscale + ", mail=" + mail + ", user=" + user + ", dataNascita=" + dataNascita + ", arrPrenCamera=" + arrPrenCamera + ", arrPrenRisto=" + arrPrenRisto + '}';
     }
-    */
+     */
 }
-       
-            
-
-
-    
-

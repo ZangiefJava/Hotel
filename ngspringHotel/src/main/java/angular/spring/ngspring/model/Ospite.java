@@ -10,14 +10,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name= "Ospite")
+@Table(name = "Ospite")
 public class Ospite implements Serializable
 {
+
     //PROPERTIES.
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;    
+    private Long id;
     @Column(name = "codiceFiscale")
     private String codiceFiscale;
     @Column(name = "nome")
@@ -26,7 +27,6 @@ public class Ospite implements Serializable
     private String cognome;
 
     //GET & SET.
-
     public Long getId()
     {
         return id;
@@ -36,8 +36,7 @@ public class Ospite implements Serializable
     {
         this.id = id;
     }
-    
-    
+
     public String getCodiceFiscale()
     {
         return codiceFiscale;

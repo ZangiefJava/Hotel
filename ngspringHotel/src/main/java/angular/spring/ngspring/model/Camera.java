@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package angular.spring.ngspring.model;
 
 import java.io.Serializable;
@@ -16,19 +12,20 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Camera")
+@Table(name = "Camera")
 public class Camera implements Serializable
 {
+
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="descrizione")
+    @Column(name = "descrizione")
     private String descrizione;
     @ManyToOne
-    @JoinColumn(name="idTipologia", nullable=false)    
+    @JoinColumn(name = "idTipologia", nullable = false)
     private TipologiaCamera tipologiaCamera;
-    
+
     @Override
     public int hashCode()
     {
@@ -91,8 +88,5 @@ public class Camera implements Serializable
     {
         return "Camera{" + "id=" + id + ", descrizione=" + descrizione + ", tipologiaCamera=" + tipologiaCamera + '}';
     }
-    
-        
-    
-    
+
 }
