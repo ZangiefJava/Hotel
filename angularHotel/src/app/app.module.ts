@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { CameraComponent } from './camera/camera.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CameraComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +19,6 @@ import { HomeComponent } from './home/home.component';
       { path: 'camera', component: CameraComponent }
 
     ])
-
   ],
   providers: [],
   bootstrap: [AppComponent]
