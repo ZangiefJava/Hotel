@@ -12,6 +12,7 @@ import { SuperiorComponent } from './superior/superior.component';
 import { DeluxeComponent } from './deluxe/deluxe.component';
 import { ContattiComponent } from './contatti/contatti.component';
 import { ServizioComponent } from './servizio/servizio.component';
+import { SuiteComponent } from './suite/suite.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ServizioComponent } from './servizio/servizio.component';
     SuperiorComponent,
     DeluxeComponent,
     ContattiComponent,
-    ServizioComponent
+    ServizioComponent,
+    SuiteComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { ServizioComponent } from './servizio/servizio.component';
       { path: 'superior', component: SuperiorComponent },
       { path: 'deluxe', component: DeluxeComponent },
       { path: 'contatti', component: ContattiComponent },
-      { path: 'servizio', component: ServizioComponent }
+      { path: 'servizio', component: ServizioComponent },
+      { path: 'suite', component: SuiteComponent }
 
 
 
