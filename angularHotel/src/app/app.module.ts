@@ -9,6 +9,7 @@ import { HotelComponent } from './hotel/hotel.component';
 import { PrenotazioneComponent } from './prenotazione/prenotazione.component';
 import { RistoranteComponent } from './ristorante/ristorante.component';
 import { SuperiorComponent } from './superior/superior.component';
+import { DeluxeComponent } from './deluxe/deluxe.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SuperiorComponent } from './superior/superior.component';
     HotelComponent,
     PrenotazioneComponent,
     RistoranteComponent,
-    SuperiorComponent
+    SuperiorComponent,
+    DeluxeComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { SuperiorComponent } from './superior/superior.component';
       { path: 'hotel', component: HotelComponent },
       { path: 'prenotazione', component: PrenotazioneComponent },
       { path: 'ristorante', component: RistoranteComponent },
-      { path: 'superior', component: SuperiorComponent }
+      { path: 'superior', component: SuperiorComponent },
+      { path: 'deluxe', component: DeluxeComponent }
 
 
 

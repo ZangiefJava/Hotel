@@ -11,5 +11,5 @@ export class SuperiorComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
 }
