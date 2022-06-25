@@ -10,6 +10,8 @@ import { PrenotazioneComponent } from './prenotazione/prenotazione.component';
 import { RistoranteComponent } from './ristorante/ristorante.component';
 import { SuperiorComponent } from './superior/superior.component';
 import { DeluxeComponent } from './deluxe/deluxe.component';
+import { ContattiComponent } from './contatti/contatti.component';
+import { ServizioComponent } from './servizio/servizio.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { DeluxeComponent } from './deluxe/deluxe.component';
     PrenotazioneComponent,
     RistoranteComponent,
     SuperiorComponent,
-    DeluxeComponent
+    DeluxeComponent,
+    ContattiComponent,
+    ServizioComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,9 @@ import { DeluxeComponent } from './deluxe/deluxe.component';
       { path: 'prenotazione', component: PrenotazioneComponent },
       { path: 'ristorante', component: RistoranteComponent },
       { path: 'superior', component: SuperiorComponent },
-      { path: 'deluxe', component: DeluxeComponent }
+      { path: 'deluxe', component: DeluxeComponent },
+      { path: 'contatti', component: ContattiComponent },
+      { path: 'servizio', component: ServizioComponent }
 
 
 
