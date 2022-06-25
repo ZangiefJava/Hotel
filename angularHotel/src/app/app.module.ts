@@ -13,6 +13,7 @@ import { DeluxeComponent } from './deluxe/deluxe.component';
 import { ContattiComponent } from './contatti/contatti.component';
 import { ServizioComponent } from './servizio/servizio.component';
 import { SuiteComponent } from './suite/suite.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SuiteComponent } from './suite/suite.component';
     ContattiComponent,
     ServizioComponent,
     SuiteComponent
+
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { SuiteComponent } from './suite/suite.component';
       { path: 'deluxe', component: DeluxeComponent },
       { path: 'contatti', component: ContattiComponent },
       { path: 'servizio', component: ServizioComponent },
+      { path: 'login', component: LoginComponent },
       { path: 'suite', component: SuiteComponent }
 
 
@@ -50,5 +53,3 @@ import { SuiteComponent } from './suite/suite.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-
