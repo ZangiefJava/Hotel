@@ -15,6 +15,7 @@ import { ServizioComponent } from './servizio/servizio.component';
 import { SuiteComponent } from './suite/suite.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
+import { RegistrazioneComponent } from './registrazione/registrazione.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MenuComponent } from './menu/menu.component';
     ServizioComponent,
     SuiteComponent,
     MenuComponent,
-    HomeComponent
+    HomeComponent,
+    RegistrazioneComponent
 
   ],
   imports: [
