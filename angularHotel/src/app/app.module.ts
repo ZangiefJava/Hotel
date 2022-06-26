@@ -14,6 +14,7 @@ import { ContattiComponent } from './contatti/contatti.component';
 import { ServizioComponent } from './servizio/servizio.component';
 import { SuiteComponent } from './suite/suite.component';
 import { LoginComponent } from './login/login.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { LoginComponent } from './login/login.component';
     DeluxeComponent,
     ContattiComponent,
     ServizioComponent,
-    SuiteComponent
+    SuiteComponent,
+    MenuComponent,
+    HomeComponent
 
   ],
   imports: [
@@ -43,9 +46,8 @@ import { LoginComponent } from './login/login.component';
       { path: 'contatti', component: ContattiComponent },
       { path: 'servizio', component: ServizioComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'suite', component: SuiteComponent }
-
-
+      { path: 'suite', component: SuiteComponent },
+      { path: 'home', component: HomeComponent }
 
     ])
   ],
