@@ -4,33 +4,22 @@
         <tr class="bg-warning p-4">
           <th>Data inizio</th>
           <th>Data fine</th>
-          <th>Tipologia</th>
-          <th>Camera</th>
+          <th>Tipologia Camera</th>          
         </tr>            
         <tr>
           <td width="25%" class="bg-warning">            
-            <input [(ngModel)]="newAuto.marca">
+            <input [(ngModel)]="newPrenotazione.dataInizio">
           </td>
           <td width="25%" class="bg-warning">            
-            <input [(ngModel)]="newAuto.modello">
+            <input [(ngModel)]="newPrenotazione.dataFine">
           </td>
           <td width="25%" class="bg-warning">
-            <select class="custom-select-sm" [(ngModel)]="newAuto.citta">
-              <option *ngFor="let c of arrCitta">{{c}}</option>
+            <select class="custom-select-sm" [(ngModel)]="">
+              <option *ngFor="let c of arrTipologia">{{c}}</option>
             </select>
           </td>        
-          <td width="25%" class="bg-warning">            
-            <input type="date" [(ngModel)]="newAuto.data">
-          </td>
-          <td *ngIf="modalita =='ADD'">
-            <button (click)="addAuto()" class="btn btn-primary">ADD</button>
-          </td>
-          <td *ngIf="modalita =='EDIT'">
-            <button (click)="saveAuto()" class="btn btn-primary">SAVE</button>
-          </td>
-          <td *ngIf="modalita =='EDIT'">
-            <button (click)="annulla()" class="btn btn-primary">CANCEL</button>
-          </td>
+          
         </tr>
     </table>
   -->
+  

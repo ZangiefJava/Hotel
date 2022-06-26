@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera } from 'src/model/Camera';
+import { Cliente } from 'src/model/Cliente';
 import { PrenotazioneCamera } from 'src/model/PrenotazioneCamera';
 import { TipologiaCamera } from 'src/model/TipologiaCamera';
 
@@ -14,7 +15,12 @@ export class PrenotazioneComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
 
-  //newPrenotazione:PrenotazioneCamera= new PrenotazioneCamera???
+  
+  arrTipologia:string[]=["SUPERIOR"]
+  camera!:Camera
+  cliente!:Cliente
+  tipologiaCamera!:TipologiaCamera
+
+  newPrenotazione:PrenotazioneCamera= new PrenotazioneCamera(+"", new Date(), new Date(), 100, this.camera, this.cliente, this.tipologiaCamera)
 }
