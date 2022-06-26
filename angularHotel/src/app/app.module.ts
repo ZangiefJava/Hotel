@@ -49,7 +49,8 @@ import { RegistrazioneComponent } from './registrazione/registrazione.component'
       { path: 'servizio', component: ServizioComponent },
       { path: 'login', component: LoginComponent },
       { path: 'suite', component: SuiteComponent },
-      { path: 'home', component: HomeComponent }
+      { path: 'home', component: HomeComponent },
+      { path: 'registrazione', component: RegistrazioneComponent }
 
     ])
   ],
