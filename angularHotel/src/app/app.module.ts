@@ -16,6 +16,7 @@ import { SuiteComponent } from './suite/suite.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
+import { BusinessComponent } from './business/business.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { RegistrazioneComponent } from './registrazione/registrazione.component'
     SuiteComponent,
     MenuComponent,
     HomeComponent,
-    RegistrazioneComponent
+    RegistrazioneComponent,
+    BusinessComponent
 
   ],
   imports: [
@@ -50,7 +52,10 @@ import { RegistrazioneComponent } from './registrazione/registrazione.component'
       { path: 'login', component: LoginComponent },
       { path: 'suite', component: SuiteComponent },
       { path: 'home', component: HomeComponent },
-      { path: 'registrazione', component: RegistrazioneComponent }
+      { path: 'registrazione', component: RegistrazioneComponent },
+      { path: 'business', component: BusinessComponent },
+      { path: '', redirectTo: '/home', pathMatch: 'full' }, //imposto la mia home come hompage quando trovo il path ''
+      { path: '**', component: HomeComponent } //rimanda alla home quando l'utente inserisce un url errato
 
     ])
   ],
