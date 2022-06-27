@@ -24,8 +24,6 @@ public class TipologiaCamera
     private Long id;
     @Column(name = "nome")
     private String nome;
-    @Column(name = "descrizione")
-    private String descrizione;
     @Column(name = "costoC")
     private Integer costoC;
     @OneToMany(mappedBy = "tipologiaCamera",
@@ -79,16 +77,6 @@ public class TipologiaCamera
         this.nome = nome;
     }
 
-    public String getDescrizione()
-    {
-        return descrizione;
-    }
-
-    public void setDescrizione(String descrizione)
-    {
-        this.descrizione = descrizione;
-    }
-
     public Integer getCostoC()
     {
         return costoC;
@@ -112,7 +100,7 @@ public class TipologiaCamera
     @Override
     public String toString()
     {
-        return "TipologiaCamera{" + "id=" + id + ", nome=" + nome + ", descrizione=" + descrizione + ", costoC=" + costoC + ", arrCamera=" + arrCamera + '}';
+        return "TipologiaCamera{" + "id=" + id + ", nome=" + nome + ", costoC=" + costoC + ", arrCamera=" + arrCamera + '}';
     }
 
 }

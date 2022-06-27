@@ -29,7 +29,7 @@ public class PrenotazioneRisto
     @Column(name = "posti")
     private Integer posti;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idCliente", nullable = false)
+    @JoinColumn(name = "userCliente", nullable = false)
     private Cliente cliente;
 
     @Override

@@ -26,29 +26,17 @@ public class Cliente implements Serializable
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "user")
+    private String user;
     @Column(name = "nome")
     private String nome;
     @Column(name = "cognome")
     private String cognome;
-    @Column(name = "codiceFiscale")
-    private String codiceFiscale;
-    @Column(name = "mail")
-    private String mail;
-    @Column(name = "user")
-    private String user;
     @Column(name = "password")
     private String password;
     @Column(name = "dataNascita")
     private LocalDate dataNascita;
 
-    /*
-    @OneToMany(mappedBy = "cliente",
-            fetch = FetchType.LAZY)
-    private List<PrenotazioneRisto> arrPrenRisto = new ArrayList<>();
-    @OneToMany(mappedBy = "cliente",
-            fetch = FetchType.LAZY)
-    private List<PrenotazioneCamera> arrPrenCamera = new ArrayList<>();
-     */
     //GET & SET
     public Long getId()
     {
@@ -78,26 +66,6 @@ public class Cliente implements Serializable
     public void setCognome(String cognome)
     {
         this.cognome = cognome;
-    }
-
-    public String getCodiceFiscale()
-    {
-        return codiceFiscale;
-    }
-
-    public void setCodiceFiscale(String codiceFiscale)
-    {
-        this.codiceFiscale = codiceFiscale;
-    }
-
-    public String getMail()
-    {
-        return mail;
-    }
-
-    public void setMail(String mail)
-    {
-        this.mail = mail;
     }
 
     public String getUser()
@@ -130,33 +98,12 @@ public class Cliente implements Serializable
         this.dataNascita = dataNascita;
     }
 
-    /*
-    public List<PrenotazioneCamera> getArrPrenCamera()
-    {
-        return arrPrenCamera;
-    }
-    
-    public void setArrPrenCamera(List<PrenotazioneCamera> arrPrenCamera)
-    {
-        this.arrPrenCamera = arrPrenCamera;
-    }
-
-    public List<PrenotazioneRisto> getArrPrenRisto()
-    {
-        return arrPrenRisto;
-    }
-
-    public void setArrPrenRisto(List<PrenotazioneRisto> arrPrenRisto)
-    {
-        this.arrPrenRisto = arrPrenRisto;
-    }
-     */
     //EQUALS & HASHCODE
     @Override
     public int hashCode()
     {
-        int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.id);
+        int hash = 5;
+        hash = 67 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -178,12 +125,12 @@ public class Cliente implements Serializable
         final Cliente other = (Cliente) obj;
         return Objects.equals(this.id, other.id);
     }
-    /*
+
     //TOSTRING
     @Override
     public String toString()
     {
-        return "Cliente{" + "nome=" + nome + ", cognome=" + cognome + ", codiceFiscale=" + codiceFiscale + ", mail=" + mail + ", user=" + user + ", dataNascita=" + dataNascita + ", arrPrenCamera=" + arrPrenCamera + ", arrPrenRisto=" + arrPrenRisto + '}';
+        return "Cliente{" + "user=" + user + ", nome=" + nome + ", cognome=" + cognome + ", dataNascita=" + dataNascita + '}';
     }
-     */
+
 }

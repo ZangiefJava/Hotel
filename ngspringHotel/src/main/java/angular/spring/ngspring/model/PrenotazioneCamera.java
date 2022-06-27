@@ -31,10 +31,7 @@ public class PrenotazioneCamera
     @JoinColumn(name = "idCamera", nullable = false)
     private Camera camera;
     @ManyToOne
-    @JoinColumn(name = "idTipologiaCamera")
-    private TipologiaCamera tipologiaCamera;
-    @ManyToOne
-    @JoinColumn(name = "idCliente")
+    @JoinColumn(name = "userCliente")
     private Cliente cliente;
 
     @Override
@@ -114,16 +111,6 @@ public class PrenotazioneCamera
         this.camera = camera;
     }
 
-    public TipologiaCamera getTipologiaCamera()
-    {
-        return tipologiaCamera;
-    }
-
-    public void setTipologiaCamera(TipologiaCamera tipologiaCamera)
-    {
-        this.tipologiaCamera = tipologiaCamera;
-    }
-
     public Cliente getCliente()
     {
         return cliente;
@@ -134,10 +121,10 @@ public class PrenotazioneCamera
         this.cliente = cliente;
     }
 
+    //TOSTRING
     @Override
     public String toString()
     {
-        return "PrenotazioneCamera{" + "id=" + id + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine + ", prezzo=" + prezzo + ", camera=" + camera + ", tipologiaCamera=" + tipologiaCamera + ", cliente=" + cliente + '}';
+        return "PrenotazioneCamera{" + "id=" + id + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine + ", prezzo=" + prezzo + ", camera=" + camera + ", cliente=" + cliente + '}';
     }
-
 }
