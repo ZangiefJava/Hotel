@@ -1,3 +1,4 @@
+
 package angular.spring.ngspring.model;
 
 import java.io.Serializable;
@@ -20,33 +21,25 @@ import javax.persistence.Table;
 @Table(name = "Cliente")
 public class Cliente implements Serializable
 {
-
-    //PROPERTIES
+   
+    
+    
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; 
     @Column(name = "user")
     private String user;
     @Column(name = "nome")
     private String nome;
     @Column(name = "cognome")
-    private String cognome;
+    private String cognome;     
     @Column(name = "password")
     private String password;
     @Column(name = "dataNascita")
     private LocalDate dataNascita;
-
-    //GET & SET
-    public Long getId()
-    {
-        return id;
-    }
-
-    public void setId(Long id)
-    {
-        this.id = id;
-    }
+    
+    
 
     public String getNome()
     {
@@ -66,13 +59,14 @@ public class Cliente implements Serializable
     public void setCognome(String cognome)
     {
         this.cognome = cognome;
-    }
+    }   
 
+    
     public String getUser()
     {
         return user;
     }
-
+    
     public void setUser(String user)
     {
         this.user = user;
@@ -96,14 +90,13 @@ public class Cliente implements Serializable
     public void setDataNascita(LocalDate dataNascita)
     {
         this.dataNascita = dataNascita;
-    }
-
-    //EQUALS & HASHCODE
+    }   
+    
     @Override
     public int hashCode()
     {
-        int hash = 5;
-        hash = 67 * hash + Objects.hashCode(this.id);
+        int hash = 7;
+        hash = 19 * hash + Objects.hashCode(this.user);
         return hash;
     }
 
@@ -123,14 +116,20 @@ public class Cliente implements Serializable
             return false;
         }
         final Cliente other = (Cliente) obj;
-        return Objects.equals(this.id, other.id);
+        return Objects.equals(this.user, other.user);
     }
 
-    //TOSTRING
     @Override
     public String toString()
     {
-        return "Cliente{" + "user=" + user + ", nome=" + nome + ", cognome=" + cognome + ", dataNascita=" + dataNascita + '}';
+        return "Cliente{" + "id=" + id + ", user=" + user + ", nome=" + nome + ", cognome=" + cognome + ", password=" + password + ", dataNascita=" + dataNascita + '}';
     }
-
+    
+    
 }
+       
+            
+
+
+    
+

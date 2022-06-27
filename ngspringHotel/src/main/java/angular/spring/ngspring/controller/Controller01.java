@@ -1,7 +1,8 @@
-/*package angular.spring.ngspring.controller;
+package angular.spring.ngspring.controller;
 
-import angular.spring.ngspring.model.Auto;
-import angular.spring.ngspring.model.SrvAuto;
+
+import angular.spring.ngspring.model.PrenotazioneCamera;
+import angular.spring.ngspring.model.SrvPrenotazioneCamera;
 import java.util.Collections;
 
 import java.util.List;
@@ -19,15 +20,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller01 {
     
     @Autowired
-    SrvAuto srvAuto;
+    SrvPrenotazioneCamera srvPrenotazioneCamera;
     
-    @RequestMapping(value = {"/nuovaAuto"})
+    @RequestMapping(value = {"/nuovaPrenotazione"})
     @ResponseBody    
-    public List<Auto> nuovaAuto(
-        @RequestBody Auto auto){        
-        srvAuto.nuovaAuto(auto);
-        return srvAuto.listaAuto();
+    public List<PrenotazioneCamera> nuovaPrenotazione(
+        @RequestBody PrenotazioneCamera prenotazioneCamera){        
+        srvPrenotazioneCamera.nuovaPrenotazione(prenotazioneCamera);
+        return srvPrenotazioneCamera.listaPrenotazioneCamera();
     }
+    /*
     @RequestMapping(value = {"/findById"})
     @ResponseBody    
     public Auto findById(
@@ -50,8 +52,8 @@ public class Controller01 {
             srvAuto.del(auto);
         return srvAuto.listaAuto();
     }           
-        
+    */   
     
     
 }
-*/
+

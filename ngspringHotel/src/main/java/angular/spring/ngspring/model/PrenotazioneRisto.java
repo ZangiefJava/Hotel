@@ -14,23 +14,22 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "PrenotazioneRisto")
+@Table(name="PrenotazioneRisto")
 public class PrenotazioneRisto
 {
-
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "data")
+    @Column(name="data")
     private LocalDate data;
-    @Column(name = "ora")
+    @Column(name="ora")
     private LocalTime ora;
-    @Column(name = "posti")
+    @Column(name="posti")
     private Integer posti;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userCliente", nullable = false)
-    private Cliente cliente;
+    @ManyToOne(fetch=FetchType.LAZY) 
+    @JoinColumn(name="user", nullable=false)
+    private Cliente cliente; 
 
     @Override
     public int hashCode()
@@ -59,6 +58,8 @@ public class PrenotazioneRisto
         return Objects.equals(this.id, other.id);
     }
 
+    
+    
     public Long getId()
     {
         return id;
@@ -114,5 +115,7 @@ public class PrenotazioneRisto
     {
         return "PrenotazioneRisto{" + "id=" + id + ", data=" + data + ", ora=" + ora + ", posti=" + posti + ", cliente=" + cliente + '}';
     }
-
+    
+    
+    
 }

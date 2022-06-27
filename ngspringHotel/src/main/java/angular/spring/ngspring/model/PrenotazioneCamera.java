@@ -1,5 +1,6 @@
 package angular.spring.ngspring.model;
 
+
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
@@ -12,26 +13,29 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name = "PrenotazioneCamera")
+@Table(name="PrenotazioneCamera")
 public class PrenotazioneCamera
 {
-
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(name = "dataInizio")
+    @Column(name="id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;    
+    @Column(name="dataInizio")
     private LocalDate dataInizio;
-    @Column(name = "dataFine")
+    @Column(name="dataFine")
     private LocalDate dataFine;
-    @Column(name = "prezzo")
+    @Column(name="prezzo")
     private Integer prezzo;
     @ManyToOne
-    @JoinColumn(name = "idCamera", nullable = false)
+    @JoinColumn(name="idCamera")
     private Camera camera;
     @ManyToOne
-    @JoinColumn(name = "userCliente")
+    @JoinColumn(name="idTipologiaCamera")
+    private TipologiaCamera tipologiaCamera;
+    @ManyToOne
+    @JoinColumn(name="user")
     private Cliente cliente;
 
     @Override
@@ -61,6 +65,8 @@ public class PrenotazioneCamera
         return Objects.equals(this.id, other.id);
     }
 
+    
+    
     public Long getId()
     {
         return id;
@@ -91,6 +97,8 @@ public class PrenotazioneCamera
         this.dataFine = dataFine;
     }
 
+    
+
     public Integer getPrezzo()
     {
         return prezzo;
@@ -111,6 +119,16 @@ public class PrenotazioneCamera
         this.camera = camera;
     }
 
+    public TipologiaCamera getTipologiaCamera()
+    {
+        return tipologiaCamera;
+    }
+
+    public void setTipologiaCamera(TipologiaCamera tipologiaCamera)
+    {
+        this.tipologiaCamera = tipologiaCamera;
+    }
+
     public Cliente getCliente()
     {
         return cliente;
@@ -121,10 +139,16 @@ public class PrenotazioneCamera
         this.cliente = cliente;
     }
 
-    //TOSTRING
     @Override
     public String toString()
     {
-        return "PrenotazioneCamera{" + "id=" + id + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine + ", prezzo=" + prezzo + ", camera=" + camera + ", cliente=" + cliente + '}';
+        return "PrenotazioneCamera{" + "id=" + id + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine + ", prezzo=" + prezzo + ", camera=" + camera + ", tipologiaCamera=" + tipologiaCamera + ", cliente=" + cliente + '}';
     }
+
+    
+    
+    
+            
+    
 }
+
