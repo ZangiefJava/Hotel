@@ -14,8 +14,17 @@
           <td width="25%" class="bg-warning">
             <input type="date" ([ngModel])="newPrenotazione.dataFine">
           </td>
-          -->
+          <!--<td width="25%" class="bg-warning">
+            <select class="custom-select-sm" [(ngModel)]="">
+              <option *ngFor="let c of arrTipologia">{{c}}</option>
+            </select>
+          </td>        
+        -->
+          <td>
+            <button (click)="prenota()" class="btn btn-primary">PRENOTA</button>
+          </td>
         </tr>
+
       </table>
     </div>
   </div>

@@ -10,7 +10,6 @@ export class PrenotazioneCamera {
         public dataFine: Date,
         public prezzo: number,
         public camera: Camera,
-        public cliente: Cliente,
-        public tipologiaCamera?: TipologiaCamera
+        public cliente: Cliente,        
     ) { }
 }

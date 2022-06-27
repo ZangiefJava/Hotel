@@ -1,10 +1,9 @@
 export class Cliente {
 
     constructor(
-        public id: number,
+        public user: string,
         public nome?: string,
-        public cognome?: string,
-        public user?: string,
+        public cognome?: string,     
         public password?: string,
         public DataNascita?: Date
     ) { }
