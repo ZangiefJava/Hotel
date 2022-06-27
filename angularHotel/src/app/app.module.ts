@@ -17,6 +17,9 @@ import { MenuComponent } from './menu/menu.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
 import { BusinessComponent } from './business/business.component';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +43,8 @@ import { NgModule } from '@angular/core';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'camera', component: CameraComponent },
       { path: 'hotel', component: HotelComponent },

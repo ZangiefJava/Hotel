@@ -12,6 +12,11 @@ import { TipologiaCamera } from 'src/model/TipologiaCamera';
   styleUrls: ['./prenotazione.component.css']
 })
 export class PrenotazioneComponent implements OnInit {
+  arrTipologia: string[] = ["SUPERIOR"]
+  arrPrenotazione: PrenotazioneCamera[] = []
+  newPrenotazione: PrenotazioneCamera = new PrenotazioneCamera(0, new Date(), new Date(), 100, new Camera(0, "", new TipologiaCamera(0, "", 0)), new Cliente(""))
+  dataInizio: Date = new Date()
+  dataFine: Date = new Date()
 
   constructor(
     public repositoryPrenotazione: RepositoryPrenotazione
@@ -19,12 +24,6 @@ export class PrenotazioneComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
-  arrTipologia: string[] = ["SUPERIOR"]
-  arrPrenotazione: PrenotazioneCamera[] = []
-
-  newPrenotazione: PrenotazioneCamera = new PrenotazioneCamera(0, new Date(), new Date(), 100, new Camera(0, "", new TipologiaCamera(0, "", 0)), new Cliente(""))
 
   prenota() {
     this.repositoryPrenotazione.prenota(this.newPrenotazione).subscribe(risp => { this.arrPrenotazione = risp; })
