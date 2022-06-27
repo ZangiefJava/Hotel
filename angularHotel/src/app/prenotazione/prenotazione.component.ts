@@ -15,8 +15,8 @@ export class PrenotazioneComponent implements OnInit {
   arrTipologia: string[] = ["SUPERIOR"]
   arrPrenotazione: PrenotazioneCamera[] = []
   newPrenotazione: PrenotazioneCamera = new PrenotazioneCamera(0, new Date(), new Date(), 100, new Camera(0, "", new TipologiaCamera(0, "", 0)), new Cliente(""))
-  dataInizio: Date = new Date()
-  dataFine: Date = new Date()
+  //dataInizio: Date = new Date()
+  //dataFine: Date = new Date()
 
   constructor(
     public repositoryPrenotazione: RepositoryPrenotazione
