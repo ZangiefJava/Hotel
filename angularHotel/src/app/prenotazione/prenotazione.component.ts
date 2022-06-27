@@ -16,11 +16,9 @@ export class PrenotazioneComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
-  arrTipologia:string[]=["SUPERIOR"]
-  camera!:Camera
-  cliente!:Cliente
-  tipologiaCamera!:TipologiaCamera
 
-  newPrenotazione:PrenotazioneCamera= new PrenotazioneCamera(+"", new Date(), new Date(), 100, this.camera, this.cliente, this.tipologiaCamera)
+  arrTipologia: string[] = ["SUPERIOR"]
+
+
+  newPrenotazione: PrenotazioneCamera = new PrenotazioneCamera(0, new Date(), new Date(), 100, new Camera(0, "", new TipologiaCamera(0, "", 0)), new Cliente(0))
 }
