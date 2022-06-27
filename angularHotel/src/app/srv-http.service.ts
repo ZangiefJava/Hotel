@@ -14,7 +14,7 @@ export class SrvHTTPService {
   
   
  prenota(prenotazione:PrenotazioneCamera):Observable<PrenotazioneCamera[]>{
-    return this.http.post<PrenotazioneCamera[]>(this.url+"/nuovaPrenotazione", prenotazione)
+    return this.http.post<PrenotazioneCamera[]>(this.url+"/nuovaPrenotazioneCamera", prenotazione)
   }
   
 }

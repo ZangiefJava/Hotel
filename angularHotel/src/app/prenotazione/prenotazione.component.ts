@@ -14,21 +14,21 @@ import { TipologiaCamera } from 'src/model/TipologiaCamera';
 export class PrenotazioneComponent implements OnInit {
 
   constructor(
-    public repositoryPrenotazione:RepositoryPrenotazione
+    public repositoryPrenotazione: RepositoryPrenotazione
   ) { }
 
   ngOnInit(): void {
   }
 
-  
-  arrTipologia:string[]=["SUPERIOR"]
-  arrPrenotazione:PrenotazioneCamera[]=[]  
 
-  newPrenotazione:PrenotazioneCamera= new PrenotazioneCamera(0, new Date(), new Date(), 100, new Camera(0, "", new TipologiaCamera(0, "", 0)), new Cliente(""))
+  arrTipologia: string[] = ["SUPERIOR"]
+  arrPrenotazione: PrenotazioneCamera[] = []
 
-  prenota(){
-    this.repositoryPrenotazione.prenota(this.newPrenotazione).subscribe(risp=>{this.arrPrenotazione=risp;})
-      
-      this.newPrenotazione=new PrenotazioneCamera(0, new Date(), new Date(), 100, new Camera(0, "", new TipologiaCamera(0, "", 0)), new Cliente(""))
+  newPrenotazione: PrenotazioneCamera = new PrenotazioneCamera(0, new Date(), new Date(), 100, new Camera(0, "", new TipologiaCamera(0, "", 0)), new Cliente(""))
+
+  prenota() {
+    this.repositoryPrenotazione.prenota(this.newPrenotazione).subscribe(risp => { this.arrPrenotazione = risp; })
+
+    this.newPrenotazione = new PrenotazioneCamera(0, new Date(), new Date(), 100, new Camera(0, "", new TipologiaCamera(0, "", 0)), new Cliente(""))
   }
 }

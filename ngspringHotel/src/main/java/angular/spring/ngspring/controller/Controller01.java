@@ -22,11 +22,11 @@ public class Controller01 {
     @Autowired
     SrvPrenotazioneCamera srvPrenotazioneCamera;
     
-    @RequestMapping(value = {"/nuovaPrenotazione"})
+    @RequestMapping(value = {"/nuovaPrenotazioneCamera"})
     @ResponseBody    
     public List<PrenotazioneCamera> nuovaPrenotazione(
         @RequestBody PrenotazioneCamera prenotazioneCamera){        
-        srvPrenotazioneCamera.nuovaPrenotazione(prenotazioneCamera);
+        srvPrenotazioneCamera.nuovaPrenotazioneCamera(prenotazioneCamera);
         return srvPrenotazioneCamera.listaPrenotazioneCamera();
     }
     /*
