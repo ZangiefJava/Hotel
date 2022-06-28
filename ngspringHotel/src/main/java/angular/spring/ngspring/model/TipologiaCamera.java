@@ -1,6 +1,7 @@
 
 package angular.spring.ngspring.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -16,7 +17,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="TipologiaCamera")
-public class TipologiaCamera
+public class TipologiaCamera implements Serializable
 {
     @Id
     @Column(name="id")
@@ -30,33 +31,8 @@ public class TipologiaCamera
             fetch = FetchType.LAZY)        
     private List<Camera> arrCamera = new ArrayList<>();
 
-    @Override
-    public int hashCode()
-    {
-        int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.id);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj)
-    {
-        if (this == obj)
-        {
-            return true;
-        }
-        if (obj == null)
-        {
-            return false;
-        }
-        if (getClass() != obj.getClass())
-        {
-            return false;
-        }
-        final TipologiaCamera other = (TipologiaCamera) obj;
-        return Objects.equals(this.id, other.id);
-    }
-
+    
+    
     public Long getId()
     {
         return id;
@@ -76,7 +52,6 @@ public class TipologiaCamera
     {
         this.nome = nome;
     }
-    
 
     public Integer getCostoC()
     {
@@ -98,11 +73,6 @@ public class TipologiaCamera
         this.arrCamera = arrCamera;
     }
 
-    @Override
-    public String toString()
-    {
-        return "TipologiaCamera{" + "id=" + id + ", nome=" + nome + ", costoC=" + costoC + ", arrCamera=" + arrCamera + '}';
-    }
     
     
     

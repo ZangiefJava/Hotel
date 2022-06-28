@@ -28,34 +28,8 @@ public class Camera implements Serializable
     @ManyToOne
     @JoinColumn(name="idTipologia", nullable=false)    
     private TipologiaCamera tipologiaCamera;
+
     
-    @Override
-    public int hashCode()
-    {
-        int hash = 5;
-        hash = 73 * hash + Objects.hashCode(this.id);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj)
-    {
-        if (this == obj)
-        {
-            return true;
-        }
-        if (obj == null)
-        {
-            return false;
-        }
-        if (getClass() != obj.getClass())
-        {
-            return false;
-        }
-        final Camera other = (Camera) obj;
-        return Objects.equals(this.id, other.id);
-    }
-
     public Long getId()
     {
         return id;
@@ -75,6 +49,7 @@ public class Camera implements Serializable
     {
         this.descrizione = descrizione;
     }
+
     /*
     public TipologiaCamera getTipologiaCamera()
     {
@@ -85,12 +60,7 @@ public class Camera implements Serializable
     {
         this.tipologiaCamera = tipologiaCamera;
     }
-
-    @Override
-    public String toString()
-    {
-        return "Camera{" + "id=" + id + ", descrizione=" + descrizione + ", tipologiaCamera=" + tipologiaCamera + '}';
-    }
+    
     
         
     
