@@ -6,10 +6,10 @@ export class PrenotazioneCamera {
 
     constructor(
         public id: number,
-        public dataInizio: Date,
-        public dataFine: Date,
-        public prezzo: number,
-        public camera: Camera,
-        public cliente: Cliente,        
+        public dataInizio?: Date,
+        public dataFine?: Date,
+        public prezzo?: number,
+        public camera?: Camera,
+        public cliente?: Cliente,        
     ) { }
 }
