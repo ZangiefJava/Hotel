@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Camera } from 'src/model/Camera';
 import { PrenotazioneCamera } from 'src/model/PrenotazioneCamera';
+import { TipologiaCamera } from 'src/model/TipologiaCamera';
 
 
 @Injectable({
@@ -17,8 +18,8 @@ export class SrvHTTPService {
  prenota(prenotazione:PrenotazioneCamera):Observable<PrenotazioneCamera[]>{
     return this.http.post<PrenotazioneCamera[]>(this.url+"/nuovaPrenotazioneCamera", prenotazione)
   }
-  findAll():Observable<Camera[]>{
-    return this.http.get<Camera[]>(this.url+"/listaCamera")
+  findAll():Observable<TipologiaCamera[]>{
+    return this.http.get<TipologiaCamera[]>(this.url+"/listaTipologiaCamera")
   }
 
 }

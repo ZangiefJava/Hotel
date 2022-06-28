@@ -1,20 +1,19 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { SrvHTTPService } from "src/app/srv-http.service";
-import { Camera } from "./Camera";
+
+import { TipologiaCamera } from "./TipologiaCamera";
 
 
 
 @Injectable({
     providedIn: 'root'
   }) 
-export class RepositoryCamera{
+export class RepositoryTipologiaCamera{
     constructor(        
         public srvHTTPService:SrvHTTPService
     ){}
-    /*
-    getLista():Observable<Camera[]>{
+    getLista():Observable<TipologiaCamera[]>{
         return this.srvHTTPService.findAll()
     }
-    */
 }
