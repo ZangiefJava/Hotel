@@ -4,6 +4,8 @@ import angular.spring.ngspring.model.Camera;
 import angular.spring.ngspring.model.PrenotazioneCamera;
 import angular.spring.ngspring.model.SrvCamera;
 import angular.spring.ngspring.model.SrvPrenotazioneCamera;
+import angular.spring.ngspring.model.SrvTipologiaCamera;
+import angular.spring.ngspring.model.TipologiaCamera;
 import java.util.Collections;
 
 import java.util.List;
@@ -24,8 +26,7 @@ public class Controller01
     @Autowired
     SrvPrenotazioneCamera srvPrenotazioneCamera;
     @Autowired
-    SrvCamera srvCamera;
-    
+    SrvTipologiaCamera srvTipologiaCamera;
 
     @RequestMapping(value =
     {
@@ -38,15 +39,22 @@ public class Controller01
         srvPrenotazioneCamera.nuovaPrenotazioneCamera(prenotazioneCamera);
         return srvPrenotazioneCamera.listaPrenotazioneCamera();
     }
-     @RequestMapping(value = {"/listaCamera"})
-    @ResponseBody    
-    public List<Camera> listaCamera(){
-        System.out.println("ListaCamera OK");
-        List<Camera> lista = srvCamera.listaCamera();
-        for(Camera c:lista)
-            System.out.println("> "+c);
+
+    @RequestMapping(value =
+    {
+        "/listaTipologiaCamera"
+    })
+    @ResponseBody
+    public List<TipologiaCamera> listaTipologiaCamera()
+    {
+        System.out.println("ListaTipologiaCamera OK");
+        List<TipologiaCamera> lista = srvTipologiaCamera.listaTipologiaCamera();
+        for (TipologiaCamera c : lista)
+        {
+            System.out.println("> " + c);
+        }
         return lista;
-    } 
+    }
     /*
     @RequestMapping(value = {"/findById"})
     @ResponseBody    

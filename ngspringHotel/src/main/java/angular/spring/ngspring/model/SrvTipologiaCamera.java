@@ -4,8 +4,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface SrvCamera
+public interface SrvTipologiaCamera
 {
 
-    public List<Camera> listaCamera();
+    public List<TipologiaCamera> listaTipologiaCamera();
 }

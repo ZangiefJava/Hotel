@@ -5,16 +5,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SrvCameraImpl implements SrvCamera
+public class SrvTipologiaCameraImpl implements SrvTipologiaCamera
 {
 
     @Autowired
-    RepCamera repCamera;
+    RepTipologiaCamera repTipologiaCamera;
 
     @Override
-    public List<Camera> listaCamera()
+    public List<TipologiaCamera> listaTipologiaCamera()
     {
-        return repCamera.findAll();
+        return repTipologiaCamera.findAll();
     }
 
 }
