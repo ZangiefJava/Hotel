@@ -1,6 +1,5 @@
 package angular.spring.ngspring.controller;
 
-
 import angular.spring.ngspring.model.PrenotazioneCamera;
 import angular.spring.ngspring.model.SrvPrenotazioneCamera;
 import java.util.Collections;
@@ -17,15 +16,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin("*")
 @RestController
-public class Controller01 {
-    
+public class Controller01
+{
+
     @Autowired
     SrvPrenotazioneCamera srvPrenotazioneCamera;
-    
-    @RequestMapping(value = {"/nuovaPrenotazioneCamera"})
-    @ResponseBody    
+
+    @RequestMapping(value =
+    {
+        "/nuovaPrenotazioneCamera"
+    })
+    @ResponseBody
     public List<PrenotazioneCamera> nuovaPrenotazione(
-        @RequestBody PrenotazioneCamera prenotazioneCamera){        
+            @RequestBody PrenotazioneCamera prenotazioneCamera)
+    {
         srvPrenotazioneCamera.nuovaPrenotazioneCamera(prenotazioneCamera);
         return srvPrenotazioneCamera.listaPrenotazioneCamera();
     }
@@ -52,8 +56,6 @@ public class Controller01 {
             srvAuto.del(auto);
         return srvAuto.listaAuto();
     }           
-    */   
-    
-    
-}
+     */
 
+}
