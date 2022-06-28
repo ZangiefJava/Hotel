@@ -75,12 +75,12 @@ public class Camera implements Serializable
     {
         this.descrizione = descrizione;
     }
-
+    /*
     public TipologiaCamera getTipologiaCamera()
     {
         return tipologiaCamera;
     }
-
+    */
     public void setTipologiaCamera(TipologiaCamera tipologiaCamera)
     {
         this.tipologiaCamera = tipologiaCamera;
