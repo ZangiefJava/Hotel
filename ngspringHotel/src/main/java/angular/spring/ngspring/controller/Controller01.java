@@ -27,6 +27,8 @@ public class Controller01
     SrvPrenotazioneCamera srvPrenotazioneCamera;
     @Autowired
     SrvTipologiaCamera srvTipologiaCamera;
+    @Autowired
+    SrvCamera srvCamera;
 
     @RequestMapping(value =
     {
@@ -50,6 +52,22 @@ public class Controller01
         System.out.println("ListaTipologiaCamera OK");
         List<TipologiaCamera> lista = srvTipologiaCamera.listaTipologiaCamera();
         for (TipologiaCamera c : lista)
+        {
+            System.out.println("> " + c);
+        }
+        return lista;
+    }
+
+    @RequestMapping(value =
+    {
+        "/listaCamera"
+    })
+    @ResponseBody
+    public List<Camera> listaCamera()
+    {
+        System.out.println("ListaCamera OK");
+        List<Camera> lista = srvCamera.listaCamera();
+        for (Camera c : lista)
         {
             System.out.println("> " + c);
         }
