@@ -17,4 +17,15 @@ public class SrvCameraImpl implements SrvCamera
         return repCamera.findAll();
     }
 
+    @Override
+    public List<Camera> findByIdTipologia(Long id)
+    {
+        return repCamera.findByIdTipologia(id);
+    }
+
+    
+    
+    
+    
+
 }

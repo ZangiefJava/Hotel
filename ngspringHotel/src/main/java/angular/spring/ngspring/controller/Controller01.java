@@ -63,10 +63,10 @@ public class Controller01
         "/listaCamera"
     })
     @ResponseBody
-    public List<Camera> listaCamera()
+    public List<Camera> listaCamera(Long id)
     {
         System.out.println("ListaCamera OK");
-        List<Camera> lista = srvCamera.listaCamera();
+        List<Camera> lista = srvCamera.findByIdTipologia(id);
         for (Camera c : lista)
         {
             System.out.println("> " + c);

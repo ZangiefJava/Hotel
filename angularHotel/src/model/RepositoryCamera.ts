@@ -12,9 +12,9 @@ export class RepositoryCamera{
     constructor(        
         public srvHTTPService:SrvHTTPService
     ){}
-    /*
-    getLista():Observable<Camera[]>{
-        return this.srvHTTPService.findAll()
+    
+    getListaCamera(id:number):Observable<Camera[]>{
+        return this.srvHTTPService.findAllCamera(id)
     }
-    */
+    
 }

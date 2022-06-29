@@ -8,4 +8,5 @@ public interface SrvCamera
 {
 
     public List<Camera> listaCamera();
+    public List<Camera> findByIdTipologia(Long id);
 }
