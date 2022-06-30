@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RepCamera extends JpaRepository<Camera, Long>
 {
-    public List<Camera> findByIdTipologia(Long id);
+    public List<Camera> findByTipologiaCamera(Long id);
 }

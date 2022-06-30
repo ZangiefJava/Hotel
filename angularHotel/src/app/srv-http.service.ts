@@ -23,7 +23,7 @@ export class SrvHTTPService {
     return this.http.get<TipologiaCamera[]>(this.url+"/listaTipologiaCamera")
   }
   findAllCamera(id:number): Observable<Camera[]> {
-    return this.http.get<Camera[]>(this.url+"/listaCamera")
+    return this.http.post<Camera[]>(this.url+"/listaCamera", id)
 }
 
 }

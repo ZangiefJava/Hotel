@@ -4,6 +4,7 @@
  */
 package angular.spring.ngspring.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -26,7 +27,8 @@ public class Camera implements Serializable
     @Column(name="descrizione")
     private String descrizione;
     @ManyToOne
-    @JoinColumn(name="idTipologia", nullable=false)    
+    @JoinColumn(name="idTipologia", nullable=false) 
+    @JsonIgnore
     private TipologiaCamera tipologiaCamera;
 
     

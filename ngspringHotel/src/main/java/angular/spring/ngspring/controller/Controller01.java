@@ -30,10 +30,7 @@ public class Controller01
     @Autowired
     SrvCamera srvCamera;
 
-    @RequestMapping(value =
-    {
-        "/nuovaPrenotazioneCamera"
-    })
+    @RequestMapping(value ={"/nuovaPrenotazioneCamera"})
     @ResponseBody
     public List<PrenotazioneCamera> nuovaPrenotazione(
             @RequestBody PrenotazioneCamera prenotazioneCamera)
@@ -58,12 +55,9 @@ public class Controller01
         return lista;
     }
 
-    @RequestMapping(value =
-    {
-        "/listaCamera"
-    })
+    @RequestMapping(value = {"/listaCamera"})
     @ResponseBody
-    public List<Camera> listaCamera(Long id)
+    public List<Camera> listaCamera(@RequestBody Long id)
     {
         System.out.println("ListaCamera OK");
         List<Camera> lista = srvCamera.findByIdTipologia(id);
