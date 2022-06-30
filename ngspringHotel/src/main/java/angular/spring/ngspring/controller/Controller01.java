@@ -32,7 +32,7 @@ public class Controller01
 
     @RequestMapping(value ={"/nuovaPrenotazioneCamera"})
     @ResponseBody
-    public List<PrenotazioneCamera> nuovaPrenotazione(
+    public List<PrenotazioneCamera> nuovaPrenotazioneCamera(
             @RequestBody PrenotazioneCamera prenotazioneCamera)
     {
         srvPrenotazioneCamera.nuovaPrenotazioneCamera(prenotazioneCamera);
