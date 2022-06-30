@@ -28,7 +28,7 @@
               {{x.nome}}
             </td>
             <td>
-              <button (click)="getListaCamera(x.id)" class="btn btn-primary">CONFERMA TIPOLOGIA</button>
+              <button (click)="getListaCamera(x)" class="btn btn-primary">CONFERMA TIPOLOGIA</button>
             </td>
           </tr>
         </table>
@@ -37,7 +37,7 @@
           <tr class="bg-warning p-4">
             <th>Camere</th>
           </tr>
-          <tr *ngFor="let x of arrCamera">
+          <tr *ngFor="let x of tipologiaCamera.arrCamera">
             <td width="25%">
               {{x.id}}
             </td>

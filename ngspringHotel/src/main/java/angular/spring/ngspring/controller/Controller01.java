@@ -39,10 +39,7 @@ public class Controller01
         return srvPrenotazioneCamera.listaPrenotazioneCamera();
     }
 
-    @RequestMapping(value =
-    {
-        "/listaTipologiaCamera"
-    })
+    @RequestMapping(value ={"/listaTipologiaCamera"})
     @ResponseBody
     public List<TipologiaCamera> listaTipologiaCamera()
     {

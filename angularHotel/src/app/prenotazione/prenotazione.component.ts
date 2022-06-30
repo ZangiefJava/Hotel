@@ -20,8 +20,9 @@ export class PrenotazioneComponent implements OnInit {
   arrTipologiaCamera: TipologiaCamera[] = []
   arrPrenotazione: PrenotazioneCamera[] = []
   newPrenotazione: PrenotazioneCamera = new PrenotazioneCamera(0, new Date(), new Date(), 500, new Camera(1, new TipologiaCamera(1, "", 0), ""), new Cliente(""))
-  arrCamera:Camera[]=[]
+  arrCamera:Camera[]=[]  
   arrCameraFiltrata = this.arrCamera.filter(camera => camera.tipologiaCamera == this.arrTipologiaCamera[0]);
+  tipologiaCamera!:TipologiaCamera
   constructor(
     public repositoryPrenotazione: RepositoryPrenotazione,
     public repositoryTipologiaCamera:RepositoryTipologiaCamera,
@@ -46,12 +47,11 @@ export class PrenotazioneComponent implements OnInit {
                 console.log("*** "+this.arrTipologiaCamera.length+ " "+this.arrTipologiaCamera)
   })}
   
-  getListaCamera(id:number) {
-    this.repositoryCamera.getListaCamera(id)
-              .subscribe(risp=>{
-                this.arrCamera=risp;  
-                console.log("*** "+this.arrCamera.length+ " "+this.arrCamera)
-  })
-  }
+  getListaCamera(tipologiaCamera:TipologiaCamera) {
+      this.tipologiaCamera= tipologiaCamera
+    }
+      
+  
+
   cameraXTipologia(id:number){}
 }
