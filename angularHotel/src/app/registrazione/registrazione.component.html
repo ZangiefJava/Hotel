@@ -34,12 +34,12 @@
             <tr class="bg-warning p-4">
               <th>Cliente</th>
             </tr>
-            <tr>
+            <tr *ngFor="let x of arrCliente">
               <td width="25%">
-                {{newCliente.id}}
+                {{x.id}}
               </td>
               <td width="25%">
-                {{newCliente.user}}
+                {{x.user}}
               </td>          
             </tr>
           </table>

@@ -13,11 +13,11 @@ export class RegistrazioneComponent implements OnInit {
     public repositoryCliente:RepositoryCliente
   ) { }
   newCliente:Cliente= new Cliente(0, "","", "", "", new Date())
-  arrCliente:Cliente [] =[]
+  arrCliente:Cliente[] =[]
   ngOnInit(): void {
   }
   registra(){
-    this.repositoryCliente.registra(this.newCliente).subscribe(x=>{this.newCliente=x})
+    this.repositoryCliente.registra(this.newCliente).subscribe(risp=>{this.arrCliente=risp;})
     console.log("*** "+this.newCliente+ this.newCliente.id)
     this.newCliente= new Cliente(0,"","", "", "", new Date())
   }

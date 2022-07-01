@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -72,11 +73,24 @@ public class Controller01
         "/registra"
     })
     @ResponseBody
-    public void registra(
+    public List<Cliente> registra(
             @RequestBody Cliente cliente)
     {
         System.out.println("ecco");
         srvCliente.registra(cliente);
+        return srvCliente.lista();
+    }
+    
+    @RequestMapping("/login")
+    public List<Cliente> login(
+            @RequestParam("user") String user,
+            @RequestParam("password") String password)
+    {
+
+ 
+
+        srvCliente.login(user, password);
+        return srvCliente.lista();
     }
     /*
     @RequestMapping(value = {"/findById"})
