@@ -1,18 +1,9 @@
 package angular.spring.ngspring.controller;
 
-import angular.spring.ngspring.model.Camera;
-import angular.spring.ngspring.model.PrenotazioneCamera;
-import angular.spring.ngspring.model.SrvCamera;
-import angular.spring.ngspring.model.SrvPrenotazioneCamera;
-import angular.spring.ngspring.model.SrvTipologiaCamera;
-import angular.spring.ngspring.model.TipologiaCamera;
-import java.util.Collections;
-
+import angular.spring.ngspring.model.*;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -29,8 +20,13 @@ public class Controller01
     SrvTipologiaCamera srvTipologiaCamera;
     @Autowired
     SrvCamera srvCamera;
+    @Autowired
+    SrvCliente srvCliente;
 
-    @RequestMapping(value ={"/nuovaPrenotazioneCamera"})
+    @RequestMapping(value =
+    {
+        "/nuovaPrenotazioneCamera"
+    })
     @ResponseBody
     public List<PrenotazioneCamera> nuovaPrenotazioneCamera(
             @RequestBody PrenotazioneCamera prenotazioneCamera)
@@ -39,7 +35,10 @@ public class Controller01
         return srvPrenotazioneCamera.listaPrenotazioneCamera();
     }
 
-    @RequestMapping(value ={"/listaTipologiaCamera"})
+    @RequestMapping(value =
+    {
+        "/listaTipologiaCamera"
+    })
     @ResponseBody
     public List<TipologiaCamera> listaTipologiaCamera()
     {
@@ -52,7 +51,10 @@ public class Controller01
         return lista;
     }
 
-    @RequestMapping(value = {"/listaCamera"})
+    @RequestMapping(value =
+    {
+        "/listaCamera"
+    })
     @ResponseBody
     public List<Camera> listaCamera(@RequestBody Long id)
     {
@@ -63,6 +65,18 @@ public class Controller01
             System.out.println("> " + c);
         }
         return lista;
+    }
+
+    @RequestMapping(value =
+    {
+        "/registra"
+    })
+    @ResponseBody
+    public void registra(
+            @RequestBody Cliente cliente)
+    {
+        System.out.println("ecco");
+        srvCliente.registra(cliente);
     }
     /*
     @RequestMapping(value = {"/findById"})
