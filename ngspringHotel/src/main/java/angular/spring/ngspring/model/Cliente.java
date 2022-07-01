@@ -20,8 +20,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Cliente")
 public class Cliente implements Serializable
-{
-   
+{ 
     
     
     @Id
@@ -39,7 +38,13 @@ public class Cliente implements Serializable
     @Column(name = "dataNascita")
     private LocalDate dataNascita;
     
-    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {        
+        this.id = id;
+    }
 
     public String getNome()
     {

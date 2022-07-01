@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Camera } from 'src/model/Camera';
+import { Cliente } from 'src/model/Cliente';
 import { PrenotazioneCamera } from 'src/model/PrenotazioneCamera';
 import { TipologiaCamera } from 'src/model/TipologiaCamera';
 
@@ -16,14 +17,17 @@ export class SrvHTTPService {
   constructor(private http:HttpClient) { }
   
   
- prenota(prenotazione:PrenotazioneCamera):Observable<PrenotazioneCamera[]>{
-    return this.http.post<PrenotazioneCamera[]>(this.url+"/nuovaPrenotazioneCamera", prenotazione)
-  }
   findAll():Observable<TipologiaCamera[]>{
     return this.http.get<TipologiaCamera[]>(this.url+"/listaTipologiaCamera")
   }
   findAllCamera(id:number): Observable<Camera[]> {
     return this.http.post<Camera[]>(this.url+"/listaCamera", id)
-}
+  }
+  registra(cliente:Cliente):Observable<Cliente>{
+    return this.http.post(this.url+"/registra", cliente)
+  }
+  prenota(prenotazione:PrenotazioneCamera):Observable<PrenotazioneCamera[]>{
+    return this.http.post<PrenotazioneCamera[]>(this.url+"/nuovaPrenotazioneCamera", prenotazione)
+  }
 
 }
