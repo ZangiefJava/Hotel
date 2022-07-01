@@ -31,6 +31,7 @@ export class SrvHTTPService {
   }
   login(user:string, password:string):Observable<Cliente[]>{
     return this.http.post<Cliente[]>(this.url+"/login", user, password)
+    
   }
 
 }
