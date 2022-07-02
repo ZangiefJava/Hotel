@@ -9,5 +9,5 @@ public interface SrvCliente
 
     public void registra(Cliente cliente);
     public List<Cliente> lista();
-    public List<Cliente> login(String user, String password);
+    public List<Cliente> login(Cliente cliente);
 }

@@ -23,9 +23,12 @@ public class SrvClienteImpl implements SrvCliente
     {
         return repCliente.findAll();
     }
+    
     @Override
-    public List<Cliente> login(String user, String password)
+    public List<Cliente> login(Cliente cliente)
     {
+        String user= cliente.getUser();
+        String password= cliente.getPassword();
         return repCliente.findByUserLikeAndPasswordLike(user, password);
     }
 

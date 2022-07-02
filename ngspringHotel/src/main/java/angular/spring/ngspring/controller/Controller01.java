@@ -23,7 +23,7 @@ public class Controller01
     SrvCamera srvCamera;
     @Autowired
     SrvCliente srvCliente;
-
+    
     @RequestMapping(value =
     {
         "/nuovaPrenotazioneCamera"
@@ -52,10 +52,7 @@ public class Controller01
         return lista;
     }
 
-    @RequestMapping(value =
-    {
-        "/listaCamera"
-    })
+    @RequestMapping(value ={"/listaCamera"})
     @ResponseBody
     public List<Camera> listaCamera(@RequestBody Long id)
     {
@@ -68,13 +65,9 @@ public class Controller01
         return lista;
     }
 
-    @RequestMapping(value =
-    {
-        "/registra"
-    })
+    @RequestMapping(value ={"/registra"})
     @ResponseBody
-    public List<Cliente> registra(
-            @RequestBody Cliente cliente)
+    public List<Cliente> registra(@RequestBody Cliente cliente)
     {
         System.out.println("ecco");
         srvCliente.registra(cliente);
@@ -82,16 +75,15 @@ public class Controller01
     }
     
     @RequestMapping("/login")
-    public List<Cliente> login(
-            @RequestParam("user") String user,
-            @RequestParam("password") String password)
-    {
-
- 
-
-        srvCliente.login(user, password);
+    @ResponseBody
+    public List<Cliente> login(@RequestBody Cliente cliente)            
+    {     
+        
+        srvCliente.login(cliente);
         return srvCliente.lista();
     }
+    
+    
     /*
     @RequestMapping(value = {"/findById"})
     @ResponseBody    

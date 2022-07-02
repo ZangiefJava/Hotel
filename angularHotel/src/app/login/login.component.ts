@@ -8,8 +8,7 @@ import { RepositoryCliente } from 'src/model/RepositoryCliente';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user!:string 
-  password!:string
+  newCliente:Cliente = new Cliente()
   arrCliente:Cliente[] =[]
   constructor(public repositoryCliente:RepositoryCliente) { }
 
@@ -18,7 +17,7 @@ export class LoginComponent implements OnInit {
   
 
   login(){
-    this.repositoryCliente.login(this.user, this.password).subscribe(risp=>{this.arrCliente=risp;})
-    console.log("*** "+ "login() entrato")    
+    this.repositoryCliente.login(this.newCliente).subscribe(risp=>{this.arrCliente=risp;})
+    console.log("*** "+ this.newCliente.user + "login() entrato")    
   }
 }

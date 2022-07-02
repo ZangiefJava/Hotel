@@ -7,20 +7,33 @@
             <label class="user">User</label>
         </div>
         <div class="center">
-            <input type="text" style="margin-bottom: 10px;" [(ngModel)]="user" >
+            <input type="text" style="margin-bottom: 10px;" [(ngModel)]="newCliente.user" >
         </div>
         <div class="center">
             <label class="password">Password</label>
         </div>
         <div class="center">
-            <input type="password" [(ngModel)]="password">
+            <input type="password" [(ngModel)]="newCliente.password">
         </div>
         <div class="center">
-            <a routerLink=""><button (click)="login()" style="margin-top: 20px;" class="btn btn-success pull-right">Accedi</button></a>
+            <button (click)="login()" style="margin-top: 20px;" class="btn btn-success pull-right">Accedi</button>
         </div>
         <div class="center">
             <a href="/registrazione"><button style="margin-top: 20px;"
                     class="btn btn-success pull-right">Registrati</button></a>
         </div>
+        <table class="table table-sm table-bordered">
+            <tr class="bg-warning p-4">
+              <th>Cliente</th>
+            </tr>
+            <tr *ngFor="let x of arrCliente">
+              <td width="25%">
+                {{x.id}}
+              </td>
+              <td width="25%">
+                {{x.user}}
+              </td>          
+            </tr>
+          </table>
     </div>
 </body>
