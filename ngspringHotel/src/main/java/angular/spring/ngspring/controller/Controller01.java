@@ -24,10 +24,7 @@ public class Controller01
     @Autowired
     SrvCliente srvCliente;
     
-    @RequestMapping(value =
-    {
-        "/nuovaPrenotazioneCamera"
-    })
+    @RequestMapping(value ={"/nuovaPrenotazioneCamera"})
     @ResponseBody
     public List<PrenotazioneCamera> nuovaPrenotazioneCamera(
             @RequestBody PrenotazioneCamera prenotazioneCamera)
@@ -36,10 +33,7 @@ public class Controller01
         return srvPrenotazioneCamera.listaPrenotazioneCamera();
     }
 
-    @RequestMapping(value =
-    {
-        "/listaTipologiaCamera"
-    })
+    @RequestMapping(value ={"/listaTipologiaCamera"})
     @ResponseBody
     public List<TipologiaCamera> listaTipologiaCamera()
     {
@@ -73,7 +67,13 @@ public class Controller01
         srvCliente.registra(cliente);
         return srvCliente.lista();
     }
-    
+    @RequestMapping(value ={"/listaCliente"})
+    @ResponseBody
+     public List<Cliente> listaCliente()
+     {      
+         return srvCliente.lista();
+     }
+    /*
     @RequestMapping("/login")
     @ResponseBody
     public List<Cliente> login(@RequestBody Cliente cliente)            
@@ -82,7 +82,8 @@ public class Controller01
         srvCliente.login(cliente);
         return srvCliente.lista();
     }
-    
+    */
+  
     
     /*
     @RequestMapping(value = {"/findById"})

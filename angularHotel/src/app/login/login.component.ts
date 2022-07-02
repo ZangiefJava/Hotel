@@ -12,12 +12,26 @@ export class LoginComponent implements OnInit {
   arrCliente:Cliente[] =[]
   constructor(public repositoryCliente:RepositoryCliente) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getListaCliente()
   }
-  
+  getListaCliente(){
+    this.repositoryCliente.getListaCliente().subscribe(risp=>{this.arrCliente=risp;})
+  }
 
   login(){
-    this.repositoryCliente.login(this.newCliente).subscribe(risp=>{this.arrCliente=risp;})
-    console.log("*** "+ this.newCliente.user + "login() entrato")    
+    /*console.log("*** "+this.newCliente.user + " " + this.newCliente.password)
+    if(this.arrCliente.some(checkUser)
+    function checkUser (this.newCliente.user){
+      return user
+    }){     
+      alert("Benvenuto" + " "+ this.newCliente.user)
+    }
+    else{      
+      alert("User o Password errati")
+    }
+    */
+    //this.repositoryCliente.login(this.newCliente).subscribe(risp=>{this.arrCliente=risp;})
+    //console.log("*** "+ this.newCliente.user + "login() entrato")    
   }
 }

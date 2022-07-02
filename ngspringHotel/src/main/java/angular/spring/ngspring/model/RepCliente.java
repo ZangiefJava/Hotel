@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RepCliente extends JpaRepository<Cliente, Long>
 {
-    public List<Cliente> findByUserLikeAndPasswordLike(String user, String password);
+    //public List<Cliente> findByUserLikeAndPasswordLike(String user, String password);
 }

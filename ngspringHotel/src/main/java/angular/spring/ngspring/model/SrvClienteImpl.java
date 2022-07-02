@@ -23,7 +23,7 @@ public class SrvClienteImpl implements SrvCliente
     {
         return repCliente.findAll();
     }
-    
+    /*
     @Override
     public List<Cliente> login(Cliente cliente)
     {
@@ -31,5 +31,5 @@ public class SrvClienteImpl implements SrvCliente
         String password= cliente.getPassword();
         return repCliente.findByUserLikeAndPasswordLike(user, password);
     }
-
+    */
 }

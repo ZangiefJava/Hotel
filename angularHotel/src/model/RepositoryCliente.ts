@@ -17,8 +17,12 @@ export class RepositoryCliente{
     registra(cliente:Cliente):Observable<Cliente[]>{
         return this.srvHTTPService.registra(cliente)
     }
+    /*
     login(cliente:Cliente):Observable<Cliente[]>{
         return this.srvHTTPService.login(cliente)
     }
-    
+    */
+    getListaCliente():Observable<Cliente[]>{
+        return this.srvHTTPService.findAllCliente()
+    }
 }
