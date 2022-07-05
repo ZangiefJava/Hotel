@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/model/Cliente';
 import { RepositoryCliente } from 'src/model/RepositoryCliente';
+import { DatiUtenteService } from '../Servizi/dati-utente.service';
 
 @Component({
   selector: 'app-registrazione',
@@ -10,16 +11,17 @@ import { RepositoryCliente } from 'src/model/RepositoryCliente';
 export class RegistrazioneComponent implements OnInit {
 
   constructor(
-    public repositoryCliente:RepositoryCliente
+    public repositoryCliente:RepositoryCliente,
+    public datiUtenteService:DatiUtenteService
   ) { }
-  newCliente:Cliente= new Cliente(0, "","", "", "", new Date())
+  newCliente:Cliente= new Cliente("","", "", "")
   arrCliente:Cliente[] =[]
   ngOnInit(): void {
   }
   registra(){
     this.repositoryCliente.registra(this.newCliente).subscribe(risp=>{this.arrCliente=risp;})
-    console.log("*** "+this.newCliente+ this.newCliente.id)
-    this.newCliente= new Cliente(0,"","", "", "", new Date())
+    console.log("*** "+this.newCliente+ this.newCliente.user)
+    this.newCliente= new Cliente("","", "", "")
   }
 
 }

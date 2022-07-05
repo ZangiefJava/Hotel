@@ -73,6 +73,14 @@ public class Controller01
      {      
          return srvCliente.lista();
      }
+     
+    @RequestMapping(value = {"/findById"})
+    @ResponseBody    
+    public Cliente findById(
+        @RequestBody Cliente cliente){
+        System.out.println("ClienteController " + cliente);
+        return srvCliente.findById(cliente);
+    }
     /*
     @RequestMapping("/login")
     @ResponseBody

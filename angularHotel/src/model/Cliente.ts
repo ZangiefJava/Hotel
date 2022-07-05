@@ -1,11 +1,12 @@
+import { PrenotazioneCamera } from "./PrenotazioneCamera";
+
 export class Cliente {
 
-    constructor(
-        public id?: number,
-        public user?: string,
+    constructor(        
+        public user: string,
         public nome?: string,
         public cognome?: string,     
         public password?: string,
-        public dataNascita?: Date
+        public arrPrenotazione?:PrenotazioneCamera[]     
     ) { }
 }

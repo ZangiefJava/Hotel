@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatiUtenteService } from '../Servizi/dati-utente.service';
 
 @Component({
   selector: 'app-deluxe',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeluxeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public datiUtenteService:DatiUtenteService
+  ) { }
 
   ngOnInit(): void {
   }

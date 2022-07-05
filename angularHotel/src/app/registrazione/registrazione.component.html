@@ -10,11 +10,7 @@
         <div class="center">
             <label class="cognome">Cognome </label>
             <input [(ngModel)]="newCliente.cognome" style="margin-bottom: 10px;">
-        </div>
-        <div class="center">
-            <label class="data">Data di nascita </label>
-            <input type = "date" [(ngModel)]="newCliente.dataNascita" style="margin-bottom: 10px;">
-        </div>
+        </div>        
         <div class="center">
             <label class="user">User </label>
             <input [(ngModel)]="newCliente.user" style="margin-bottom: 10px;">
@@ -34,10 +30,7 @@
             <tr class="bg-warning p-4">
               <th>Cliente</th>
             </tr>
-            <tr *ngFor="let x of arrCliente">
-              <td width="25%">
-                {{x.id}}
-              </td>
+            <tr *ngFor="let x of arrCliente">              
               <td width="25%">
                 {{x.user}}
               </td>          

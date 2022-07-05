@@ -1,3 +1,4 @@
+/*
 package angular.spring.ngspring.model;
 
 import java.time.LocalDate;
@@ -119,3 +120,4 @@ public class PrenotazioneRisto
     
     
 }
+*/

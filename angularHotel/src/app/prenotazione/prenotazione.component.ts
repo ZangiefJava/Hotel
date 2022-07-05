@@ -7,8 +7,10 @@ import { RepositoryCamera } from 'src/model/RepositoryCamera';
 
 import { RepositoryPrenotazione } from 'src/model/RepositoryPrenotazione';
 import { RepositoryTipologiaCamera } from 'src/model/RepositoryTipologiaCamera';
+import { Servizio } from 'src/model/Servizio';
 
 import { TipologiaCamera } from 'src/model/TipologiaCamera';
+import { DatiUtenteService } from '../Servizi/dati-utente.service';
 
 
 @Component({
@@ -20,15 +22,18 @@ export class PrenotazioneComponent implements OnInit {
   arrCameraVuoto: Camera[]=[]
   arrTipologiaCamera: TipologiaCamera[] = []
   arrPrenotazione: PrenotazioneCamera[] = []
-  newPrenotazione: PrenotazioneCamera = new PrenotazioneCamera(0, new Date(), new Date(), 500, new Camera(1, new TipologiaCamera(1, "", 0), ""), new Cliente())
+  newPrenotazione: PrenotazioneCamera = new PrenotazioneCamera(0, new Date(), new Date(), 500, new Camera(1, new TipologiaCamera(1, "", 0), ""), new Cliente(""))
   arrCamera:Camera[]=[]   
   tipologiaCamera:TipologiaCamera = new TipologiaCamera(0, "", 0, this.arrCameraVuoto) 
   dataInizio!:Date
   dataFine!:Date
+  arrServizio: Servizio[] = []
   constructor(
     public repositoryPrenotazione: RepositoryPrenotazione,
     public repositoryTipologiaCamera:RepositoryTipologiaCamera,
-    public repositoryCamera:RepositoryCamera
+    public repositoryCamera:RepositoryCamera,
+    public datiUtenteService:DatiUtenteService
+
 
   ) {}
 
@@ -43,7 +48,14 @@ export class PrenotazioneComponent implements OnInit {
                 this.arrTipologiaCamera=risp;  
                 console.log("*** "+this.arrTipologiaCamera.length+ " "+this.arrTipologiaCamera)
   })}
-  
+  /*
+  getListaServizio(){
+    this.repositoryServizio.getListaServizio()
+              .subscribe(risp=>{
+                this.arrServizio=risp;  
+                console.log("*** "+this.arrServizio.length+ " "+this.arrServizio)
+  })}
+  */
   getListaCamera(tipologiaCamera:TipologiaCamera) {
       this.tipologiaCamera= tipologiaCamera
     }
@@ -51,10 +63,10 @@ export class PrenotazioneComponent implements OnInit {
   
 
   cameraXTipologia(id:number){
-     let newPrenotazione1 = new PrenotazioneCamera(0, this.dataInizio, this.dataFine, this.tipologiaCamera.costoC, new Camera(id, new TipologiaCamera(1, "", 0), ""), new Cliente())
+     let newPrenotazione1 = new PrenotazioneCamera(0, this.dataInizio, this.dataFine, this.tipologiaCamera.costoC, new Camera(id, new TipologiaCamera(1, "", 0), ""), new Cliente(this.datiUtenteService.cliente.user))
      this.repositoryPrenotazione.prenota(newPrenotazione1).subscribe(risp => { this.arrPrenotazione = risp; })
      console.log("*** "+this.dataInizio+ " "+this.dataFine)
-    this.newPrenotazione = new PrenotazioneCamera(0, new Date(), new Date(), 100, new Camera(0, new TipologiaCamera(0, "", 0), ""), new Cliente())
+    this.newPrenotazione = new PrenotazioneCamera(0, new Date(), new Date(), 100, new Camera(0, new TipologiaCamera(0, "", 0), ""), new Cliente(this.datiUtenteService.cliente.user))
     
   }
 }

@@ -23,6 +23,13 @@ public class SrvClienteImpl implements SrvCliente
     {
         return repCliente.findAll();
     }
+    @Override
+    public Cliente findById(Cliente cliente) {
+        Cliente ret = repCliente.findById(cliente.getUser()).orElse(null);
+        System.out.println("ClienteSrv " + ret);
+        
+        return ret;    
+    }
     /*
     @Override
     public List<Cliente> login(Cliente cliente)

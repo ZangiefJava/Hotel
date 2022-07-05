@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/model/Cliente';
-import { RepositoryCliente } from 'src/model/RepositoryCliente';
+import { DatiUtenteService } from '../Servizi/dati-utente.service';
+import { LoginUtenteService } from '../Servizi/login-utente.service';
 
 @Component({
   selector: 'app-login',
@@ -8,30 +9,34 @@ import { RepositoryCliente } from 'src/model/RepositoryCliente';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  newCliente:Cliente = new Cliente()
-  arrCliente:Cliente[] =[]
-  constructor(public repositoryCliente:RepositoryCliente) { }
+  cliente:Cliente=new Cliente("","","","")
+  msg:string=""
+  constructor(
+    public datiUtenteService:DatiUtenteService,
+    public loginUtenteService:LoginUtenteService
+  ) { }
 
-  ngOnInit() {
-    this.getListaCliente()
-  }
-  getListaCliente(){
-    this.repositoryCliente.getListaCliente().subscribe(risp=>{this.arrCliente=risp;})
+  ngOnInit(): void {
+    this.login()
+    
   }
 
   login(){
-    /*console.log("*** "+this.newCliente.user + " " + this.newCliente.password)
-    if(this.arrCliente.some(checkUser)
-    function checkUser (this.newCliente.user){
-      return user
-    }){     
-      alert("Benvenuto" + " "+ this.newCliente.user)
-    }
-    else{      
-      alert("User o Password errati")
-    }
-    */
-    //this.repositoryCliente.login(this.newCliente).subscribe(risp=>{this.arrCliente=risp;})
-    //console.log("*** "+ this.newCliente.user + "login() entrato")    
+    let res = new Cliente("","","","")
+    this.datiUtenteService.cliente=new Cliente("","","","")
+    this.loginUtenteService.verificaEsistenza(this.cliente)
+      .subscribe(risp=>{
+          res=risp;
+          if (res != undefined){
+            if(res.password== this.cliente.password){
+              this.msg="DATI OK"
+              this.datiUtenteService.cliente = res;
+            }else{
+              this.msg="DATI KO"
+            }               
+          }            
+    })        
   }
+  
+    
 }

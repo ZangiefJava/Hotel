@@ -1,4 +1,3 @@
-
 package angular.spring.ngspring.model;
 
 import java.io.Serializable;
@@ -22,13 +21,13 @@ public class Servizio implements Serializable{
     private String descrizione;
     @Column(name="costo")
     private Integer costo;
+   
     
     public int hashCode() {
         int hash = 7;
         hash = 89 * hash + Objects.hashCode(this.id);
         return hash;
     }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -71,15 +70,9 @@ public class Servizio implements Serializable{
         this.costo = costo;
     }
 
-  
-
     @Override
     public String toString() {
         return "Servizio{" + " " + descrizione + " € " + costo + '}';
     }
-
-
-
-
-    
+   
 }
