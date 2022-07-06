@@ -1,12 +1,18 @@
 package angular.spring.ngspring.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -21,7 +27,7 @@ public class Servizio implements Serializable{
     private String descrizione;
     @Column(name="costo")
     private Integer costo;
-   
+    
     
     public int hashCode() {
         int hash = 7;
@@ -71,8 +77,14 @@ public class Servizio implements Serializable{
     }
 
     @Override
-    public String toString() {
-        return "Servizio{" + " " + descrizione + " € " + costo + '}';
+    public String toString()
+    {
+        return "Servizio{" + "id=" + id + ", descrizione=" + descrizione + ", costo=" + costo + '}';
     }
+
+    
+    
+    
+    
    
 }

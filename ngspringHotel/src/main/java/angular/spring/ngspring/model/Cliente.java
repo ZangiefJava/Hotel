@@ -1,6 +1,7 @@
 
 package angular.spring.ngspring.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,7 @@ public class Cliente  implements Serializable{
     
     @OneToMany(mappedBy="cliente",
             fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<PrenotazioneCamera> arrPrenotazione = new ArrayList<>();
     /*
     @OneToMany(mappedBy="cliente",

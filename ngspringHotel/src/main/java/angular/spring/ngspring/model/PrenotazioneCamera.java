@@ -1,6 +1,7 @@
 package angular.spring.ngspring.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,15 +35,14 @@ public class PrenotazioneCamera
     @ManyToOne
     @JoinColumn(name="idCamera")
     private Camera camera;
-    @OneToMany(mappedBy="prenotazioneCamera",
-            fetch = FetchType.LAZY)    
-    private List<Servizio> arrServizio = new ArrayList<>();
-
     
     @ManyToOne
     @JoinColumn(name="user")
+    @JsonIgnore
     private Cliente cliente;
-
+    
+    
+    
     @Override
     public int hashCode()
     {
@@ -134,12 +134,15 @@ public class PrenotazioneCamera
     public void setCliente(Cliente cliente)
     {
         this.cliente = cliente;
-    }
+    }       
 
     @Override
     public String toString()
     {
         return "PrenotazioneCamera{" + "id=" + id + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine + ", prezzo=" + prezzo + ", camera=" + camera + ", cliente=" + cliente + '}';
     }
-   
+
+    
+    
+    
 }

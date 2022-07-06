@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 import { Camera } from 'src/model/Camera';
 import { Cliente } from 'src/model/Cliente';
 import { PrenotazioneCamera } from 'src/model/PrenotazioneCamera';
+import { Servizio } from 'src/model/Servizio';
 import { TipologiaCamera } from 'src/model/TipologiaCamera';
+import { DatiUtenteService } from './dati-utente.service';
 
 
 @Injectable({
@@ -26,16 +28,13 @@ export class SrvHTTPService {
   registra(cliente:Cliente):Observable<Cliente[]>{
     return this.http.post<Cliente[]>(this.url+"/registra", cliente)
   }
-  prenota(prenotazione:PrenotazioneCamera):Observable<PrenotazioneCamera[]>{
+  prenota(prenotazione:PrenotazioneCamera):Observable<PrenotazioneCamera[]>{   
+    console.log("*** "+ prenotazione.cliente?.user )
     return this.http.post<PrenotazioneCamera[]>(this.url+"/nuovaPrenotazioneCamera", prenotazione)
   }
-  /*
-  login(cliente:Cliente):Observable<Cliente[]>{
-    return this.http.post<Cliente[]>(this.url+"/login", cliente)    
-  }
-  */
+  
   findAllCliente():Observable<Cliente[]>{
     return this.http.get<Cliente[]>(this.url+"/listaCliente")
-  }
+  }  
 
 }
