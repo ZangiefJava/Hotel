@@ -1,6 +1,6 @@
 import { Camera } from "./Camera";
 import { Cliente } from "./Cliente";
-import { Servizio } from "./Servizio";
+
 
 
 export class PrenotazioneCamera {

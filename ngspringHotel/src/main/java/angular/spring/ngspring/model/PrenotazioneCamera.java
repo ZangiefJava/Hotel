@@ -34,11 +34,9 @@ public class PrenotazioneCamera
     private Integer prezzo;
     @ManyToOne
     @JoinColumn(name="idCamera")
-    private Camera camera;
-    
+    private Camera camera;    
     @ManyToOne
-    @JoinColumn(name="user")
-    @JsonIgnore
+    @JoinColumn(name="user")    
     private Cliente cliente;
     
     
