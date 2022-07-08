@@ -26,8 +26,7 @@ public class SrvClienteImpl implements SrvCliente
     @Override
     public Cliente findById(Cliente cliente) {
         Cliente ret = repCliente.findById(cliente.getUser()).orElse(null);
-        System.out.println("ClienteSrv " + ret);
-        
+        System.out.println("ClienteSrv " + ret);        
         return ret;    
     }
     /*

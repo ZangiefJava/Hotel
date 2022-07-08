@@ -15,6 +15,8 @@ export class RepositoryServizio{
         public srvHTTPService:SrvHTTPService
     ){}
     
-   
+    getListaServizio():Observable<Servizio[]>{
+        return this.srvHTTPService.findAllServizio()
+    }
    
 }

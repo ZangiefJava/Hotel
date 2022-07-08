@@ -1,5 +1,6 @@
 import { Camera } from "./Camera";
 import { Cliente } from "./Cliente";
+import { Servizio } from "./Servizio";
 
 
 
@@ -11,7 +12,8 @@ export class PrenotazioneCamera {
         public dataFine?: Date,
         public prezzo?: number,
         public camera?: Camera,
-        public cliente?: Cliente
+        public cliente?: Cliente,
+        public arrServizio?:Servizio
                 
     ) { }
 }

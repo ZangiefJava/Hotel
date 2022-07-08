@@ -17,6 +17,7 @@ export class LoginUtenteService {
   ) { }
 
   verificaEsistenza(cliente:Cliente):Observable<Cliente>{
+    console.log("*** "+ cliente.user )
     return this.http.post<Cliente>(this.url+"/findById", cliente)
      
   }

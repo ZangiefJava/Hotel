@@ -25,7 +25,7 @@ export class SrvHTTPService {
   findAllCamera(id:number): Observable<Camera[]> {
     return this.http.post<Camera[]>(this.url+"/listaCamera", id)
   }
-  registra(cliente:Cliente):Observable<Cliente[]>{
+  registra(cliente:Cliente):Observable<Cliente[]>{    
     return this.http.post<Cliente[]>(this.url+"/registra", cliente)
   }
   prenota(prenotazione:PrenotazioneCamera):Observable<PrenotazioneCamera[]>{   
@@ -35,6 +35,9 @@ export class SrvHTTPService {
   
   findAllCliente():Observable<Cliente[]>{
     return this.http.get<Cliente[]>(this.url+"/listaCliente")
-  }  
+  } 
+  findAllServizio():Observable<Servizio[]>{
+    return this.http.get<Servizio[]>(this.url+"/listaServizio")
+  }   
 
 }

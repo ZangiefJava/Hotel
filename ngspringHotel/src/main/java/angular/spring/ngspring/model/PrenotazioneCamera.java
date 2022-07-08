@@ -5,8 +5,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +16,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -38,6 +43,11 @@ public class PrenotazioneCamera
     @ManyToOne
     @JoinColumn(name="user")    
     private Cliente cliente;
+    @ManyToMany
+    @JoinTable(name = "prenotazioneCamera_servizio", 
+            joinColumns = { @JoinColumn(name = "fk_prenotazioneCamera") }, 
+            inverseJoinColumns = { @JoinColumn(name = "fk_servizio") })
+    private Set<Servizio> arrServizio = new HashSet<Servizio>();
     
     
     
@@ -111,12 +121,12 @@ public class PrenotazioneCamera
     {
         this.prezzo = prezzo;
     }
-
+    
     public Camera getCamera()
     {
         return camera;
     }
-
+    
     public void setCamera(Camera camera)
     {
          this.camera = camera;
@@ -132,13 +142,27 @@ public class PrenotazioneCamera
     public void setCliente(Cliente cliente)
     {
         this.cliente = cliente;
-    }       
+    }  
+
+    public Set<Servizio> getArrServizio()
+    {
+        return arrServizio;
+    }
+
+    public void setArrServizio(Set<Servizio> arrServizio)
+    {
+        this.arrServizio = arrServizio;
+    }
 
     @Override
     public String toString()
     {
-        return "PrenotazioneCamera{" + "id=" + id + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine + ", prezzo=" + prezzo + ", camera=" + camera + ", cliente=" + cliente + '}';
+        return "PrenotazioneCamera{" + "id=" + id + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine + ", prezzo=" + prezzo + ", arrServizio=" + arrServizio + '}';
     }
+    
+    
+
+    
 
     
     
