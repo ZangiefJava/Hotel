@@ -1,4 +1,4 @@
-/*
+
 import { DatiPrenotazioneCameraService } from './dati-prenotazione-camera-service';
 
 describe('DatiPrenotazioneCameraService', () => {
@@ -6,4 +6,4 @@ describe('DatiPrenotazioneCameraService', () => {
     expect(new DatiPrenotazioneCameraService()).toBeTruthy();
   });
 });
-*/
+

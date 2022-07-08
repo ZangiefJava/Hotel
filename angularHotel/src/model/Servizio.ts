@@ -5,6 +5,6 @@ export class Servizio {
         public id: number,
         public descrizione?: string,
         public costo?: number,
-        public arrPrenotazioneCamera?: PrenotazioneCamera        
+        public arrPrenotazioneCamera?: PrenotazioneCamera[]        
     ) { }
 }

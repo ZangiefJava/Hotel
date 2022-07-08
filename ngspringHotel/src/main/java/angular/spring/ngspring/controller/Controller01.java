@@ -29,12 +29,15 @@ public class Controller01
     
     @RequestMapping(value ={"/nuovaPrenotazioneCamera"})
     @ResponseBody
-    public List<PrenotazioneCamera> nuovaPrenotazioneCamera(
+    public PrenotazioneCamera nuovaPrenotazioneCamera(
             @RequestBody PrenotazioneCamera prenotazioneCamera)
     {
-        System.out.println("Controller prenotazione" + prenotazioneCamera.getCliente());
-        srvPrenotazioneCamera.nuovaPrenotazioneCamera(prenotazioneCamera);
-        return srvPrenotazioneCamera.listaPrenotazioneCamera();
+        PrenotazioneCamera prenotazione;
+        prenotazione = srvPrenotazioneCamera.nuovaPrenotazioneCamera(prenotazioneCamera);
+        System.out.println("Controller prenotazione" + prenotazione.getId());
+        return prenotazione;
+        
+        
     }
 
     @RequestMapping(value ={"/listaTipologiaCamera"})
@@ -92,6 +95,14 @@ public class Controller01
      {      
          return srvServizio.lista();
      }
+     
+    @RequestMapping(value ={"/listaPrenotazione"})
+    @ResponseBody
+    public List<PrenotazioneCamera> listaPrenotazione(@RequestBody Cliente cliente)
+    {
+        System.out.println("Controller ListaPrenotazione OK");
+        return srvPrenotazioneCamera.findByCliente(cliente);
+    }
     
     /*
     @RequestMapping("/login")

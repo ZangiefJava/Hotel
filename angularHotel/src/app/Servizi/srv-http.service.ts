@@ -28,9 +28,9 @@ export class SrvHTTPService {
   registra(cliente:Cliente):Observable<Cliente[]>{    
     return this.http.post<Cliente[]>(this.url+"/registra", cliente)
   }
-  prenota(prenotazione:PrenotazioneCamera):Observable<PrenotazioneCamera[]>{   
+  prenota(prenotazione:PrenotazioneCamera):Observable<PrenotazioneCamera>{   
     console.log("*** "+ prenotazione.cliente?.user )
-    return this.http.post<PrenotazioneCamera[]>(this.url+"/nuovaPrenotazioneCamera", prenotazione)
+    return this.http.post<PrenotazioneCamera>(this.url+"/nuovaPrenotazioneCamera", prenotazione)
   }
   
   findAllCliente():Observable<Cliente[]>{
@@ -38,6 +38,9 @@ export class SrvHTTPService {
   } 
   findAllServizio():Observable<Servizio[]>{
     return this.http.get<Servizio[]>(this.url+"/listaServizio")
-  }   
+  }  
+  findAllPrenotazione(cliente:Cliente): Observable<PrenotazioneCamera[]> {
+    return this.http.post<PrenotazioneCamera[]>(this.url+"/listaPrenotazione", cliente)
+  } 
 
 }

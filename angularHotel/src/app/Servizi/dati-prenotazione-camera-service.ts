@@ -1,4 +1,4 @@
-/*
+
 import { Injectable } from '@angular/core';
 import { PrenotazioneCamera } from 'src/model/PrenotazioneCamera';
 
@@ -11,4 +11,3 @@ export class DatiPrenotazioneCameraService {
   public prenotazioneCamera:PrenotazioneCamera = new PrenotazioneCamera(0)
   constructor() { }
 }
-*/

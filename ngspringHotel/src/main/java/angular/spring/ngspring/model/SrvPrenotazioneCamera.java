@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 public interface SrvPrenotazioneCamera
 {
 
-    public void nuovaPrenotazioneCamera(PrenotazioneCamera prenotazioneCamera);
+    public PrenotazioneCamera nuovaPrenotazioneCamera(PrenotazioneCamera prenotazioneCamera);
 
     public List<PrenotazioneCamera> listaPrenotazioneCamera();
+    public List<PrenotazioneCamera> findByCliente(Cliente cliente);
 }

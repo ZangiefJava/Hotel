@@ -12,15 +12,22 @@ public class SrvPrenotazioneCameraImpl implements SrvPrenotazioneCamera
     RepPrenotazioneCamera repPrenotazioneCamera;
 
     @Override
-    public void nuovaPrenotazioneCamera(PrenotazioneCamera prenotazioneCamera)
+    public PrenotazioneCamera nuovaPrenotazioneCamera(PrenotazioneCamera prenotazioneCamera)
     {
-        repPrenotazioneCamera.save(prenotazioneCamera);
+        return repPrenotazioneCamera.save(prenotazioneCamera);
+     
     }
 
     @Override
     public List<PrenotazioneCamera> listaPrenotazioneCamera()
     {
         return repPrenotazioneCamera.findAll();
+    }
+     @Override
+    public List<PrenotazioneCamera> findByCliente(Cliente cliente)
+    {
+        
+        return repPrenotazioneCamera.findByCliente(cliente);//.get();
     }
 
 }

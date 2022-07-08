@@ -20,6 +20,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ExtraComponent } from './extra/extra.component';
+import { AreaClienteComponent } from './area-cliente/area-cliente.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ExtraComponent } from './extra/extra.component';
     RegistrazioneComponent,
     BusinessComponent,
     LoginComponent,
-    ExtraComponent
+    ExtraComponent,
+    AreaClienteComponent
 
   ],
   imports: [
@@ -63,6 +65,7 @@ import { ExtraComponent } from './extra/extra.component';
       { path: 'registrazione', component: RegistrazioneComponent },
       { path: 'business', component: BusinessComponent },
       { path: 'extra', component: ExtraComponent },
+      { path: 'areaCliente', component: AreaClienteComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full' }, //imposto la mia home come hompage quando trovo il path ''
       { path: '**', component: HomeComponent } //rimanda alla home quando l'utente inserisce un url errato
 

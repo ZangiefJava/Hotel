@@ -13,7 +13,7 @@ export class PrenotazioneCamera {
         public prezzo?: number,
         public camera?: Camera,
         public cliente?: Cliente,
-        public arrServizio?:Servizio
+        public arrServizio?:Servizio[]
                 
     ) { }
 }
