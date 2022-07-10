@@ -23,23 +23,25 @@ export class PrenotazioneComponent implements OnInit {
   arrTipologiaCamera: TipologiaCamera[] = []
   arrPrenotazione: PrenotazioneCamera[] = []
   arrServizio:Servizio[]=[] 
-  newPrenotazione: PrenotazioneCamera = new PrenotazioneCamera(0, new Date(), new Date(), 500, new Camera(1, new TipologiaCamera(1, "", 0), ""), new Cliente(""), this.arrServizio)
+  newPrenotazione: PrenotazioneCamera = new PrenotazioneCamera(0, new Date(), new Date(), 500, new Camera(1, new TipologiaCamera(1, "", 0), ""), new Cliente(""))
   prenotazione:PrenotazioneCamera = new PrenotazioneCamera(0, new Date(), new Date(), 500, new Camera(1, new TipologiaCamera(1, "", 0), ""), new Cliente(""))
   arrCamera:Camera[]=[]  
   tipologiaCamera:TipologiaCamera = new TipologiaCamera(0, "", 0, this.arrCameraVuoto) 
   dataInizio!:Date
   dataFine!:Date 
-  prenotazioneFinale:PrenotazioneCamera= this.arrPrenotazione[this.arrPrenotazione.length-1] 
-  //prenotazioneFinale?:PrenotazioneCamera= this.arrPrenotazione.at(length-1) 
+  servizio!:Servizio
+  arrServizio2:Servizio[]=[]
+  arrServizio3:Servizio[] = []
+  
+  
+  
   constructor(
     public repositoryPrenotazione: RepositoryPrenotazione,
     public repositoryTipologiaCamera:RepositoryTipologiaCamera,
     public repositoryCamera:RepositoryCamera,    
     public datiUtenteService:DatiUtenteService,
     public datiPrenotazioneCameraService:DatiPrenotazioneCameraService,
-    public repositoryServizio:RepositoryServizio,
-
-
+    public repositoryServizio:RepositoryServizio
   ) {}
 
   ngOnInit()
@@ -65,21 +67,25 @@ export class PrenotazioneComponent implements OnInit {
   
     
 
-  cameraXTipologia(id:number){
-     let newPrenotazione1 = new PrenotazioneCamera(0, this.dataInizio, this.dataFine, this.tipologiaCamera.costoC, new Camera(id, new TipologiaCamera(1, "", 0), ""), new Cliente(this.datiUtenteService.cliente.user))
+  cameraXTipologia(id:number){   
+     //let prezzoFinale:number = this.servizio.costo! + this.tipologiaCamera.costoC! 
+     
+     let newPrenotazione1 = new PrenotazioneCamera(0, this.dataInizio, this.dataFine, this.tipologiaCamera.costoC /*prezzoFinale*/, new Camera(id, new TipologiaCamera(1, "", 0), ""), new Cliente(this.datiUtenteService.cliente.user), this.arrServizio2)     
      this.repositoryPrenotazione.prenota(newPrenotazione1).subscribe(risp => { this.prenotazione = risp; console.log("*** ultimo id "+this.prenotazione.id); })
-     console.log("*** "+this.dataInizio+ " "+this.dataFine + " " + this.datiUtenteService.cliente.user)
-    this.newPrenotazione = new PrenotazioneCamera(0, new Date(), new Date(), 100, new Camera(0, new TipologiaCamera(0, "", 0), ""), new Cliente(""))   
+     console.log("*** "+this.dataInizio+ " "+this.dataFine + " " + this.datiUtenteService.cliente.user + " prenotazione: " + this.prenotazione)
+    this.newPrenotazione = new PrenotazioneCamera(0, new Date(), new Date(), 100, new Camera(0, new TipologiaCamera(0, "", 0), ""), new Cliente(""), this.arrServizio3)   
    
   }
   getListaServizio(){
     this.repositoryServizio.getListaServizio()
               .subscribe(risp=>{
                 this.arrServizio=risp;  
-                console.log("*** "+this.arrServizio.length+ " "+this.arrServizio+ " "+ this.datiPrenotazioneCameraService.prenotazioneCamera.id)
+                console.log("*** LISTA SERVIZIO "+this.arrServizio.length+ " "+this.arrServizio+ " "+ this.datiPrenotazioneCameraService.prenotazioneCamera.id)
   })}
-  selezionaSrv(id:number){
-    
+  selezionaSrv (servizio:Servizio){
+    this.arrServizio2.push(servizio);
+    // console.log("*** COSTO SERVIZIO "+ this.servizio.costo)
+    return this.servizio
   }
   
 }

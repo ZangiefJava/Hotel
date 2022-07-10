@@ -143,7 +143,7 @@ public class PrenotazioneCamera
     {
         this.cliente = cliente;
     }  
-
+    
     public Set<Servizio> getArrServizio()
     {
         return arrServizio;
@@ -157,8 +157,12 @@ public class PrenotazioneCamera
     @Override
     public String toString()
     {
-        return "PrenotazioneCamera{" + "id=" + id + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine + ", prezzo=" + prezzo + ", arrServizio=" + arrServizio + '}';
+        return "PrenotazioneCamera{" + "id=" + id + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine + ", prezzo=" + prezzo + '}';
     }
+
+    
+
+    
     
     
 

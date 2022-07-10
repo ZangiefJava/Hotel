@@ -15,5 +15,7 @@ export class PrenotazioneCamera {
         public cliente?: Cliente,
         public arrServizio?:Servizio[]
                 
-    ) { }
+    ) { 
+        
+    }
 }

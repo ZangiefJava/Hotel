@@ -1,6 +1,25 @@
 <body background="https://img.freepik.com/free-vector/abstract-texture-background_91008-369.jpg?w=2000">    
   <div class="row">
-    <div class="col-6 m-6">        
+    <div class="col-6 m-6">   
+      <table class="table table-sm table-bordered">
+        <tr class="bg-warning p-4">
+          <th>SERVIZI EXTRA</th>
+        </tr>
+        <tr *ngFor="let x of arrServizio">
+          <td width="25%">
+            {{x.id}}
+          </td>
+          <td width="25%">
+            {{x.descrizione}}
+          </td>
+          <td width="25%">
+            {{x.costo}} €
+          </td>                
+          <td>             
+            <button (click)="selezionaSrv(x)" class="btn btn-primary">SELEZIONA SERVIZIO</button>
+          </td>
+        </tr>
+      </table>     
       <table class="table table-sm table-bordered">
         <tr class="bg-warning p-4">
           <th>Data inizio</th>
@@ -14,7 +33,7 @@
             <input type="date" [(ngModel)]="dataFine">
           </td>             
         </tr>
-      </table>
+      </table>     
       
         <table class="table table-sm table-bordered">
           <tr class="bg-warning p-4">
@@ -34,7 +53,8 @@
               <button (click)="getListaCamera(x)" class="btn btn-primary">SELEZIONA TIPOLOGIA</button>
             </td>
           </tr>
-        </table>  
+        </table>
+        
         <table class="table table-sm table-bordered">
           <tr class="bg-warning p-4">
             <th>Camere</th>
@@ -45,31 +65,13 @@
             </td>
             <td width="25%">
               {{x.descrizione}}
-            </td>            
-            <td>
+            </td>
+             <td>
               <button (click)="cameraXTipologia(x.id)" class="btn btn-primary">PRENOTA CAMERA</button>
             </td>
           </tr>
         </table>
-        <table class="table table-sm table-bordered">
-          <tr class="bg-warning p-4">
-            <th>SERVIZI EXTRA</th>
-          </tr>
-          <tr *ngFor="let x of arrServizio">
-            <td width="25%">
-              {{x.id}}
-            </td>
-            <td width="25%">
-              {{x.descrizione}}
-            </td>
-            <td width="25%">
-              {{x.costo}} €
-            </td>                
-            <td>
-              <button (click)="selezionaSrv(x.id)" class="btn btn-primary">SELEZIONA SERVIZIO</button>
-            </td>
-          </tr>
-        </table>
+        
         
           <table class="table table-sm table-bordered">
             <tr class="bg-warning p-4">
@@ -86,22 +88,7 @@
                 {{datiUtenteService.cliente.password}}
               </td>           
             </tr>
-          </table>
-          
-          <table class="table table-sm table-bordered">
-            <tr class="bg-warning p-4">
-              <th>PRENOTAZIONE</th>
-            </tr>
-            <tr>
-              <td width="25%">
-                {{prenotazione.id}}
-              </td>
-              <td width="25%">
-                {{prenotazione.prezzo}}
-              </td>              
-            </tr>
-          </table>
-          
-    </div>
+          </table>       
+       </div>
   </div>
 </body>

@@ -80,12 +80,12 @@ public class Servizio implements Serializable{
     public void setCosto(Integer costo) {
         this.costo = costo;
     }
-
+    /*
     public Set<PrenotazioneCamera> getArrPrenotazioneCamera()
     {
         return arrPrenotazioneCamera;
     }
-
+    */
     public void setArrPrenotazioneCamera(Set<PrenotazioneCamera> arrPrenotazioneCamera)
     {
         this.arrPrenotazioneCamera = arrPrenotazioneCamera;
@@ -94,7 +94,7 @@ public class Servizio implements Serializable{
     @Override
     public String toString()
     {
-        return "Servizio{" + "id=" + id + ", descrizione=" + descrizione + ", costo=" + costo + ", arrPrenotazioneCamera=" + arrPrenotazioneCamera + '}';
+        return "Servizio{" + "id=" + id + ", descrizione=" + descrizione + ", costo=" + costo + '}';
     }
 
     
