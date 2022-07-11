@@ -1,5 +1,6 @@
 package angular.spring.ngspring.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -7,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +27,11 @@ public class Ospite implements Serializable
     private String nome;
     @Column(name = "cognome")
     private String cognome;
+    @ManyToOne
+    @JoinColumn(name="idPrenotazione", nullable=false) 
+    @JsonIgnore
+    private PrenotazioneCamera prenotazioneCamera;
+
 
     //GET & SET.
 
@@ -68,6 +76,17 @@ public class Ospite implements Serializable
         this.cognome = cognome;
     }
 
+    public PrenotazioneCamera getPrenotazioneCamera()
+    {
+        return prenotazioneCamera;
+    }
+
+    public void setPrenotazioneCamera(PrenotazioneCamera prenotazioneCamera)
+    {
+        this.prenotazioneCamera = prenotazioneCamera;
+    }
+
+    
     //EQUALS & HASCODE.
     @Override
     public int hashCode()
@@ -96,10 +115,10 @@ public class Ospite implements Serializable
         return Objects.equals(this.codiceFiscale, other.codiceFiscale);
     }
 
-    //TOSPRING.
     @Override
     public String toString()
     {
-        return "Ospite{" + "codiceFiscale=" + codiceFiscale + ", nome=" + nome + ", cognome=" + cognome + '}';
+        return "Ospite{" + "id=" + id + ", codiceFiscale=" + codiceFiscale + ", nome=" + nome + ", cognome=" + cognome + ", prenotazioneCamera=" + prenotazioneCamera + '}';
     }
+
 }

@@ -76,7 +76,7 @@ export class PrenotazioneComponent implements OnInit {
 
     let prezzoUltimo2 = this.prezzoUltimo! + this.tipologiaCamera.costoC!
     console.log("*** PREZZO ULTIMO2 " + prezzoUltimo2)
-    let newPrenotazione1 = new PrenotazioneCamera(0, this.dataInizio, this.dataFine, prezzoUltimo2, new Camera(id, new TipologiaCamera(1, "", 0), ""), new Cliente(this.datiUtenteService.cliente.user), this.arrServizio2)
+    let newPrenotazione1 = new PrenotazioneCamera(0, this.dataInizio, this.dataFine, prezzoUltimo2, new Camera(id, new TipologiaCamera(1, "", 0), ""), new Cliente(this.datiUtenteService.cliente.user), this.arrServizio2, this.arrOspite)
     this.repositoryPrenotazione.prenota(newPrenotazione1).subscribe(risp => { this.prenotazione = risp; console.log("*** ultimo id " + this.prenotazione.id); })
     console.log("*** " + this.dataInizio + " " + this.dataFine + " " + this.datiUtenteService.cliente.user + " prenotazione: " + this.prenotazione)
     this.newPrenotazione = new PrenotazioneCamera(0, new Date(), new Date(), 100, new Camera(0, new TipologiaCamera(0, "", 0), ""), new Cliente(""), this.arrServizio3)
@@ -113,7 +113,7 @@ export class PrenotazioneComponent implements OnInit {
   
   aggiungiOspite(){
     this.repositoryOspite.registraOspite(this.newOspite).subscribe(risp=>{this.arrOspite=risp;})
-    console.log("*** "+this.newOspite)
+    console.log("*** OSPITE DI AGGIUNGIOSPITE() "+this.newOspite.nome)
     this.newOspite= new Ospite(0, "", "", "")
   }
  

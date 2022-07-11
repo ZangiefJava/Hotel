@@ -48,7 +48,9 @@ public class PrenotazioneCamera
             joinColumns = { @JoinColumn(name = "fk_prenotazioneCamera") }, 
             inverseJoinColumns = { @JoinColumn(name = "fk_servizio") })
     private Set<Servizio> arrServizio = new HashSet<Servizio>();
-    
+    @OneToMany(mappedBy="prenotazioneCamera",
+            fetch = FetchType.LAZY)   
+    private List<Ospite> arrOspite = new ArrayList<>();
     
     
     @Override
@@ -154,11 +156,24 @@ public class PrenotazioneCamera
         this.arrServizio = arrServizio;
     }
 
+    public List<Ospite> getArrOspite()
+    {
+        return arrOspite;
+    }
+
+    public void setArrOspite(List<Ospite> arrOspite)
+    {
+        this.arrOspite = arrOspite;
+    }
+
     @Override
     public String toString()
     {
         return "PrenotazioneCamera{" + "id=" + id + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine + ", prezzo=" + prezzo + '}';
     }
+
+    
+   
 
     
 

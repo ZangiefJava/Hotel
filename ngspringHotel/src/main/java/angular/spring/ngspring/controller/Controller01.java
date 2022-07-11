@@ -90,6 +90,12 @@ public class Controller01
      {      
          return srvCliente.lista();
      }
+    @RequestMapping(value ={"/listaOspite"})
+    @ResponseBody
+     public List<Ospite> listaOspite()
+     {      
+         return srvOspite.lista();
+     }
      
     @RequestMapping(value = {"/findById"})
     @ResponseBody    

@@ -1,5 +1,6 @@
 import { Camera } from "./Camera";
 import { Cliente } from "./Cliente";
+import { Ospite } from "./Ospite";
 import { Servizio } from "./Servizio";
 
 
@@ -13,7 +14,8 @@ export class PrenotazioneCamera {
         public prezzo?: number,
         public camera?: Camera,
         public cliente?: Cliente,
-        public arrServizio?:Servizio[]
+        public arrServizio?:Servizio[],
+        public arrOspite?:Ospite[]
                 
     ) { 
         

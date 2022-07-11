@@ -40,6 +40,9 @@ export class SrvHTTPService {
   findAllCliente():Observable<Cliente[]>{
     return this.http.get<Cliente[]>(this.url+"/listaCliente")
   } 
+  findAllOspite():Observable<Ospite[]>{
+    return this.http.get<Ospite[]>(this.url+"/listaOspite")
+  } 
   findAllServizio():Observable<Servizio[]>{
     return this.http.get<Servizio[]>(this.url+"/listaServizio")
   }  
