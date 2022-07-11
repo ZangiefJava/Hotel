@@ -12,6 +12,7 @@ import { DatiUtenteService } from '../Servizi/dati-utente.service';
 import { Servizio } from 'src/model/Servizio';
 import { RepositoryServizio } from 'src/model/RepositoryServizio';
 import { Ospite } from 'src/model/Ospite';
+import { RepositoryOspite } from 'src/model/RepositoryOspite';
 
 
 @Component({
@@ -43,7 +44,9 @@ export class PrenotazioneComponent implements OnInit {
     public repositoryCamera: RepositoryCamera,
     public datiUtenteService: DatiUtenteService,
     public datiPrenotazioneCameraService: DatiPrenotazioneCameraService,
-    public repositoryServizio: RepositoryServizio
+    public repositoryServizio: RepositoryServizio,
+    public repositoryOspite: RepositoryOspite
+
   ) { }
 
   ngOnInit() {
@@ -109,7 +112,7 @@ export class PrenotazioneComponent implements OnInit {
 
   
   aggiungiOspite(){
-    //this.repositoryOspite.registraOspite(this.newOspite).subscribe(risp=>{this.arrOspite=risp;})
+    this.repositoryOspite.registraOspite(this.newOspite).subscribe(risp=>{this.arrOspite=risp;})
     console.log("*** "+this.newOspite)
     this.newOspite= new Ospite(0, "", "", "")
   }

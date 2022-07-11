@@ -25,6 +25,8 @@ public class Controller01
     SrvCliente srvCliente;
     @Autowired
     SrvServizio srvServizio;
+    @Autowired
+    SrvOspite srvOspite;
    
     
     @RequestMapping(value ={"/nuovaPrenotazioneCamera"})
@@ -73,6 +75,14 @@ public class Controller01
         System.out.println("ecco");
         srvCliente.registra(cliente);
         return srvCliente.lista();
+    }
+    @RequestMapping(value ={"/registraOspite"})
+    @ResponseBody
+    public List<Ospite> registraOspite(@RequestBody Ospite ospite)
+    {
+        System.out.println("ecco registra Ospite");
+        srvOspite.registraOspite(ospite);
+        return srvOspite.lista();
     }
     @RequestMapping(value ={"/listaCliente"})
     @ResponseBody

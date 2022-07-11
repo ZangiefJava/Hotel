@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Camera } from 'src/model/Camera';
 import { Cliente } from 'src/model/Cliente';
+import { Ospite } from 'src/model/Ospite';
 import { PrenotazioneCamera } from 'src/model/PrenotazioneCamera';
 import { Servizio } from 'src/model/Servizio';
 import { TipologiaCamera } from 'src/model/TipologiaCamera';
@@ -27,6 +28,9 @@ export class SrvHTTPService {
   }
   registra(cliente:Cliente):Observable<Cliente[]>{    
     return this.http.post<Cliente[]>(this.url+"/registra", cliente)
+  }
+  registraOspite(ospite:Ospite):Observable<Ospite[]>{    
+    return this.http.post<Ospite[]>(this.url+"/registraOspite", ospite)
   }
   prenota(prenotazione:PrenotazioneCamera):Observable<PrenotazioneCamera>{   
     console.log("*** "+ prenotazione.cliente?.user )
