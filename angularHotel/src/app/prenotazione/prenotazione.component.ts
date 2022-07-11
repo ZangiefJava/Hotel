@@ -87,5 +87,12 @@ export class PrenotazioneComponent implements OnInit {
     // console.log("*** COSTO SERVIZIO "+ this.servizio.costo)
     return this.servizio
   }
-  
+  onChange(servizio:Servizio, event:any){
+    if(!event.target.checked)
+    this.arrServizio2.splice(this.arrServizio2.indexOf(servizio), 1)
+    if(event.target.checked)
+    this.arrServizio2.push(servizio)
+    
+  }
+ 
 }
