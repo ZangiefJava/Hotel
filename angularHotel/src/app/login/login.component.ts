@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cliente } from 'src/model/Cliente';
 import { DatiUtenteService } from '../Servizi/dati-utente.service';
 import { LoginUtenteService } from '../Servizi/login-utente.service';
@@ -9,11 +10,11 @@ import { LoginUtenteService } from '../Servizi/login-utente.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  cliente:Cliente=new Cliente("","","","")
-  msg:string=""
+  cliente:Cliente=new Cliente("","","","")  
   constructor(
     public datiUtenteService:DatiUtenteService,
-    public loginUtenteService:LoginUtenteService
+    public loginUtenteService:LoginUtenteService,
+    public router:Router
   ) { }
 
   ngOnInit(): void {
@@ -29,10 +30,11 @@ export class LoginComponent implements OnInit {
           res=risp;
           if (res != undefined){
             if(res.password== this.cliente.password){
-              this.msg="DATI OK"
-              this.datiUtenteService.cliente = res;
+              alert("login effettuato con successo")
+              this.datiUtenteService.cliente = res;              
+              this.router.navigate(['/home'])
             }else{
-              this.msg="DATI KO"
+              alert("Dati errati")
             }               
           }            
     })        

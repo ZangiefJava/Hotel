@@ -17,11 +17,14 @@
         </div>
         <div class="center">
             <button (click)="login()" style="margin-top: 20px;" class="btn btn-success pull-right">Accedi</button>
+           
+            <!-- <a *ngIf="modalita =='OK'" alter = "login effettuato" routerLink="/home"></a> -->
         </div>
         <div class="center">
             <a href="/registrazione"><button style="margin-top: 20px;"
                     class="btn btn-success pull-right">Registrati</button></a>
         </div> 
+        <!--
         <table class="table table-sm table-bordered">
             <tr class="bg-warning p-4">
               <th>Cliente</th>
@@ -37,7 +40,8 @@
                 {{datiUtenteService.cliente.password}}
               </td>           
             </tr>
-          </table> 
-          {{msg}}      
+          </table>           
+          {{msg}}
+          -->      
     </div>
 </body>

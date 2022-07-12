@@ -4,7 +4,16 @@
 
 <div class="center">
         
-         <a routerLink="/login"><button style="margin-right:20px" class="btn btn-success pull-right">Login</button></a>
+        
+        
+        <div *ngIf="datiUtenteService.cliente == null; else elseBlock">
+                <a routerLink="/login"><button style="margin-right:20px" class="btn btn-success pull-right">Login</button></a>
+                    
+        </div>
+             
+            <ng-template #elseBlock>
+                <a routerLink="/login"><button style="margin-right:20px" class="btn btn-success pull-right">Logout</button></a>  
+            </ng-template>
 
         <a routerLink="/home"><button style="margin-right:20px" class="btn btn-success pull-right">Home</button></a>
 

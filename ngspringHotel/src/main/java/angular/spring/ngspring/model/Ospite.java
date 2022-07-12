@@ -28,8 +28,7 @@ public class Ospite implements Serializable
     @Column(name = "cognome")
     private String cognome;
     @ManyToOne
-    @JoinColumn(name="idPrenotazione", nullable=false) 
-    @JsonIgnore
+    @JoinColumn(name="idPrenotazione", nullable=false)     
     private PrenotazioneCamera prenotazioneCamera;
 
 
@@ -118,7 +117,7 @@ public class Ospite implements Serializable
     @Override
     public String toString()
     {
-        return "Ospite{" + "id=" + id + ", codiceFiscale=" + codiceFiscale + ", nome=" + nome + ", cognome=" + cognome + ", prenotazioneCamera=" + prenotazioneCamera + '}';
+        return "Ospite{" + "id=" + id + ", codiceFiscale=" + codiceFiscale + ", nome=" + nome + ", cognome=" + cognome + '}';
     }
 
 }

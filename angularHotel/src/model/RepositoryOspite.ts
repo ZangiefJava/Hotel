@@ -14,7 +14,7 @@ export class RepositoryOspite{
         public srvHTTPService:SrvHTTPService
     ){}
     
-    registraOspite(ospite:Ospite):Observable<Ospite[]>{
+    registraOspite(ospite:Ospite):Observable<Ospite>{
         return this.srvHTTPService.registraOspite(ospite)
     }
     

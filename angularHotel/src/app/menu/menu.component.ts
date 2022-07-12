@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Cliente } from 'src/model/Cliente';
 import { DatiUtenteService } from '../Servizi/dati-utente.service';
 
 @Component({
@@ -11,8 +12,9 @@ export class MenuComponent implements OnInit {
   constructor(
     public datiUtenteService:DatiUtenteService
   ) { }
-
+  condition:string = "OK"
   ngOnInit(): void {
+
   }
 
 }

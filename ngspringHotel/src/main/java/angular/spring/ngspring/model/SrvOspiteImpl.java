@@ -18,11 +18,8 @@ public class SrvOspiteImpl implements SrvOspite
 
     @Autowired
     RepOspite repOspite;
-    @Override
-    public void registraOspite(Ospite ospite)
-    {
-        repOspite.save(ospite);
-    }
+    
+    
     @Override
     public List<Ospite> lista()
     {
@@ -35,6 +32,12 @@ public class SrvOspiteImpl implements SrvOspite
         //Cliente ret = repOspite.findById(cliente.getUser()).orElse(null);
         //System.out.println("ClienteSrv " + ret);        
         return ospite ; 
+    }
+
+    @Override
+    public Ospite registraOspite(Ospite ospite)
+    {
+        return repOspite.save(ospite);
     }
     
 }

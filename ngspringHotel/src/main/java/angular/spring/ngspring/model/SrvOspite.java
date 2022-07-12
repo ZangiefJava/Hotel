@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface SrvOspite
 {
-     public void registraOspite(Ospite ospite);
+    public Ospite registraOspite(Ospite ospite);
     public List<Ospite> lista();
     public Ospite findById(Ospite ospite);
 }

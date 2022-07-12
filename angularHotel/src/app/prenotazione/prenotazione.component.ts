@@ -13,6 +13,7 @@ import { Servizio } from 'src/model/Servizio';
 import { RepositoryServizio } from 'src/model/RepositoryServizio';
 import { Ospite } from 'src/model/Ospite';
 import { RepositoryOspite } from 'src/model/RepositoryOspite';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -45,7 +46,8 @@ export class PrenotazioneComponent implements OnInit {
     public datiUtenteService: DatiUtenteService,
     public datiPrenotazioneCameraService: DatiPrenotazioneCameraService,
     public repositoryServizio: RepositoryServizio,
-    public repositoryOspite: RepositoryOspite
+    public repositoryOspite: RepositoryOspite,
+    public router:Router
 
   ) { }
 
@@ -73,14 +75,21 @@ export class PrenotazioneComponent implements OnInit {
 
 
   cameraXTipologia(id: number) {
-
+    console.log("*** ARR_OSPITE DI CAMERAXTIPOLOGIA() " + this.arrOspite.length)  
     let prezzoUltimo2 = this.prezzoUltimo! + this.tipologiaCamera.costoC!
     console.log("*** PREZZO ULTIMO2 " + prezzoUltimo2)
     let newPrenotazione1 = new PrenotazioneCamera(0, this.dataInizio, this.dataFine, prezzoUltimo2, new Camera(id, new TipologiaCamera(1, "", 0), ""), new Cliente(this.datiUtenteService.cliente.user), this.arrServizio2, this.arrOspite)
     this.repositoryPrenotazione.prenota(newPrenotazione1).subscribe(risp => { this.prenotazione = risp; console.log("*** ultimo id " + this.prenotazione.id); })
-    console.log("*** " + this.dataInizio + " " + this.dataFine + " " + this.datiUtenteService.cliente.user + " prenotazione: " + this.prenotazione)
+    console.log("*** " + this.dataInizio + " " + this.dataFine + " " + this.datiUtenteService.cliente.user + " prenotazione: " + this.prenotazione.arrOspite?.length)
+    //this.newOspite.prenotazioneCamera = this.prenotazione
+    // this.repositoryOspite.registraOspite(this.newOspite).subscribe(risp=>{this.newOspite=risp;})
     this.newPrenotazione = new PrenotazioneCamera(0, new Date(), new Date(), 100, new Camera(0, new TipologiaCamera(0, "", 0), ""), new Cliente(""), this.arrServizio3)
-
+    this.newOspite= new Ospite(0, "", "", "") //per azzerare l'ospite
+    console.log("*** ARR_OSPITE DI FINE CAMERAXTIPOLOGIA()  " + this.arrOspite.length)
+    this.arrOspite = [] //per azzerare l'array
+    alert("prenotazione effettuata con successo. Premere Ok per accedere all'area cliente")
+    this.router.navigate(['/areaCliente'])
+      
   }
   getListaServizio() {
     this.repositoryServizio.getListaServizio()
@@ -112,9 +121,9 @@ export class PrenotazioneComponent implements OnInit {
 
   
   aggiungiOspite(){
-    this.repositoryOspite.registraOspite(this.newOspite).subscribe(risp=>{this.arrOspite=risp;})
-    console.log("*** OSPITE DI AGGIUNGIOSPITE() "+this.newOspite.nome)
-    this.newOspite= new Ospite(0, "", "", "")
+    this.arrOspite.push(this.newOspite)
+    console.log("*** ARR_OSPITE DI AGGIUNGIOSPITE() " + this.arrOspite.length)
+    
   }
  
 }

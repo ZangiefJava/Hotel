@@ -29,11 +29,12 @@ export class SrvHTTPService {
   registra(cliente:Cliente):Observable<Cliente[]>{    
     return this.http.post<Cliente[]>(this.url+"/registra", cliente)
   }
-  registraOspite(ospite:Ospite):Observable<Ospite[]>{    
-    return this.http.post<Ospite[]>(this.url+"/registraOspite", ospite)
+  registraOspite(ospite:Ospite):Observable<Ospite>{    
+    return this.http.post<Ospite>(this.url+"/registraOspite", ospite)
   }
   prenota(prenotazione:PrenotazioneCamera):Observable<PrenotazioneCamera>{   
-    console.log("*** "+ prenotazione.cliente?.user )
+    console.log("*** SRV-HTTP PRENOTA() "+ prenotazione.cliente?.user + prenotazione.arrOspite?.length)
+    
     return this.http.post<PrenotazioneCamera>(this.url+"/nuovaPrenotazioneCamera", prenotazione)
   }
   

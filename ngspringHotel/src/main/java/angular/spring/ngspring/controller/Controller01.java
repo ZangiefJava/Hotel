@@ -36,7 +36,7 @@ public class Controller01
     {
         PrenotazioneCamera prenotazione;
         prenotazione = srvPrenotazioneCamera.nuovaPrenotazioneCamera(prenotazioneCamera);
-        System.out.println("Controller prenotazione" + prenotazione.getId());
+        System.out.println("Controller prenotazione" + prenotazione.getId() + "" + prenotazione.getArrOspite());
         return prenotazione;
         
         
@@ -78,11 +78,10 @@ public class Controller01
     }
     @RequestMapping(value ={"/registraOspite"})
     @ResponseBody
-    public List<Ospite> registraOspite(@RequestBody Ospite ospite)
+    public Ospite registraOspite(@RequestBody Ospite ospite)
     {
         System.out.println("ecco registra Ospite");
-        srvOspite.registraOspite(ospite);
-        return srvOspite.lista();
+        return srvOspite.registraOspite(ospite);
     }
     @RequestMapping(value ={"/listaCliente"})
     @ResponseBody
