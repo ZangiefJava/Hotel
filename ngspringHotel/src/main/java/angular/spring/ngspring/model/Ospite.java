@@ -2,13 +2,16 @@ package angular.spring.ngspring.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -27,9 +30,8 @@ public class Ospite implements Serializable
     private String nome;
     @Column(name = "cognome")
     private String cognome;
-    @ManyToOne
-    @JoinColumn(name="idPrenotazione", nullable=false)     
-    private PrenotazioneCamera prenotazioneCamera;
+    @ManyToMany(mappedBy = "arrOspite")
+    private Set<PrenotazioneCamera> arrPrenotazioneCamera = new HashSet<PrenotazioneCamera>();
 
 
     //GET & SET.
@@ -75,15 +77,18 @@ public class Ospite implements Serializable
         this.cognome = cognome;
     }
 
-    public PrenotazioneCamera getPrenotazioneCamera()
+    /*
+    public Set<PrenotazioneCamera> getArrPrenotazioneCamera()
     {
-        return prenotazioneCamera;
+        return arrPrenotazioneCamera;
+    }
+    */
+    public void setArrPrenotazioneCamera(Set<PrenotazioneCamera> arrPrenotazioneCamera)
+    {
+        this.arrPrenotazioneCamera = arrPrenotazioneCamera;
     }
 
-    public void setPrenotazioneCamera(PrenotazioneCamera prenotazioneCamera)
-    {
-        this.prenotazioneCamera = prenotazioneCamera;
-    }
+    
 
     
     //EQUALS & HASCODE.

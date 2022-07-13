@@ -9,14 +9,14 @@ import { Servizio } from "./Servizio";
 
 @Injectable({
     providedIn: 'root'
-  }) 
-export class RepositoryServizio{
-    constructor(        
-        public srvHTTPService:SrvHTTPService
-    ){}
-    
-    getListaServizio():Observable<Servizio[]>{
+})
+export class RepositoryServizio {
+    constructor(
+        public srvHTTPService: SrvHTTPService
+    ) { }
+
+    getListaServizio(): Observable<Servizio[]> {
         return this.srvHTTPService.findAllServizio()
     }
-   
+
 }

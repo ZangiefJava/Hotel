@@ -17,5 +17,5 @@ export class RistoranteComponent implements OnInit {
   ngOnInit(): void {
   }
   cliente!:Cliente
-  //newPrenotazioneRisto:PrenotazioneRisto= new PrenotazioneRisto(0, new Date() , 0,  this.cliente)
+  
 }

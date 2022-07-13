@@ -10,35 +10,33 @@ import { LoginUtenteService } from '../Servizi/login-utente.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  cliente:Cliente=new Cliente("","","","")  
+  cliente: Cliente = new Cliente("", "", "", "")
   constructor(
-    public datiUtenteService:DatiUtenteService,
-    public loginUtenteService:LoginUtenteService,
-    public router:Router
+    public datiUtenteService: DatiUtenteService,
+    public loginUtenteService: LoginUtenteService,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
     this.login()
-    
+
   }
 
-  login(){
-    let res = new Cliente("","","","")
-    this.datiUtenteService.cliente=new Cliente("","","","")
+  login() {
+    let res = new Cliente("", "", "", "")
+    this.datiUtenteService.cliente = new Cliente("", "", "", "")
     this.loginUtenteService.verificaEsistenza(this.cliente)
-      .subscribe(risp=>{
-          res=risp;
-          if (res != undefined){
-            if(res.password== this.cliente.password){
-              alert("login effettuato con successo")
-              this.datiUtenteService.cliente = res;              
-              this.router.navigate(['/home'])
-            }else{
-              alert("Dati errati")
-            }               
-          }            
-    })        
+      .subscribe(risp => {
+        res = risp;
+        if (res != undefined) {
+          if (res.password == this.cliente.password) {
+            alert("login effettuato con successo!")
+            this.datiUtenteService.cliente = res;
+            this.router.navigate(['/home'])
+          } else {
+            alert("Dati errati")
+          }
+        }
+      })
   }
-  
-    
 }

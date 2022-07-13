@@ -6,6 +6,7 @@ import { DatiPrenotazioneCameraService } from '../Servizi/dati-prenotazione-came
 
 
 
+
 @Component({
   selector: 'app-extra',
   templateUrl: './extra.component.html',
@@ -14,27 +15,28 @@ import { DatiPrenotazioneCameraService } from '../Servizi/dati-prenotazione-came
 export class ExtraComponent implements OnInit {
 
   constructor(
-    public repositoryServizio:RepositoryServizio,
-    public datiPrenotazioneCameraService:DatiPrenotazioneCameraService
+    public repositoryServizio: RepositoryServizio,
+    public datiPrenotazioneCameraService: DatiPrenotazioneCameraService
   ) { }
 
   ngOnInit(): void {
     this.getListaServizio()
-    
+
   }
 
-  arrServizio:Servizio[]=[]   
-  msg!:string
+  arrServizio: Servizio[] = []
+  msg!: string
 
-  getListaServizio(){
+  getListaServizio() {
     this.repositoryServizio.getListaServizio()
-              .subscribe(risp=>{
-                this.arrServizio=risp;  
-                console.log("*** "+this.arrServizio.length+ " "+this.arrServizio+ " "+ this.datiPrenotazioneCameraService.prenotazioneCamera.id)
-  })}
-  
+      .subscribe(risp => {
+        this.arrServizio = risp;
+        console.log("*** " + this.arrServizio.length + " " + this.arrServizio + " " + this.datiPrenotazioneCameraService.prenotazioneCamera.id)
+      })
+  }
 
-  selezionaSrv(id:number){
-    
+
+  selezionaSrv(id: number) {
+
   }
 }

@@ -9,7 +9,7 @@ import { DatiUtenteService } from '../Servizi/dati-utente.service';
 export class BusinessComponent implements OnInit {
 
   constructor(
-    public datiUtenteService:DatiUtenteService
+    public datiUtenteService: DatiUtenteService
   ) { }
 
   ngOnInit(): void {

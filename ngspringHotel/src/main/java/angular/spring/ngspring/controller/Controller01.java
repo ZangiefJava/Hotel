@@ -36,7 +36,7 @@ public class Controller01
     {
         PrenotazioneCamera prenotazione;
         prenotazione = srvPrenotazioneCamera.nuovaPrenotazioneCamera(prenotazioneCamera);
-        System.out.println("Controller prenotazione" + prenotazione.getId() + "" + prenotazione.getArrOspite());
+        System.out.println("Controller prenotazione" + prenotazione.getId());
         return prenotazione;
         
         

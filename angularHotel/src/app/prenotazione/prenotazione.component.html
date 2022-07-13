@@ -1,13 +1,13 @@
-<body background="https://img.freepik.com/free-vector/abstract-texture-background_91008-369.jpg?w=2000">    
+<body background="https://img.freepik.com/free-vector/abstract-texture-background_91008-369.jpg?w=2000">
   <div class="row">
-    <div class="col-6 m-6">  
-      
-      
+    <div class="col-6 m-6">
+
+
 
       <table class="table table-sm table-bordered">
         <tr class="bg-warning p-4">
           <th>Data inizio</th>
-          <th>Data fine</th>                
+          <th>Data fine</th>
         </tr>
         <tr>
           <td width="25%" class="bg-warning">
@@ -15,110 +15,127 @@
           </td>
           <td width="25%" class="bg-warning">
             <input type="date" [(ngModel)]="dataFine">
-          </td>             
+          </td>
         </tr>
-      </table>     
-      
-        <table class="table table-sm table-bordered">
-          <tr class="bg-warning p-4">
-            <th>Tipologia Camera</th>
-          </tr>
-          <tr *ngFor="let x of arrTipologiaCamera">
-            <td width="25%">
-              {{x.id}}
-            </td>
-            <td width="25%">
-              {{x.nome}}
-            </td>
-            <td width="25%">
-              {{x.costoC}} € 
-            </td>
-            <td>
-              <button (click)="getListaCamera(x)" class="btn btn-primary">SELEZIONA TIPOLOGIA</button>
-            </td>
-          </tr>
-        </table>
-        
-        <table class="table table-sm table-bordered">
-          <tr class="bg-warning p-4">
-            <th>SERVIZI EXTRA</th>
-          </tr>
-          <tr *ngFor="let x of arrServizio">
-            <td width="25%">
-              {{x.id}}
-            </td>
-            <td width="25%">
-              {{x.descrizione}}
-            </td>
-            <td width="25%">
-              {{x.costo}} €
-            </td>
-            <input type="checkbox" (change)="onChange(x, $event)" class="btn btn-primary">
-          </tr>       
-        </table>  
+      </table>
 
-        <table class="table table-sm table-bordered">
-          <tr class="bg-warning p-4">   
-            <th>OSPITE</th> 
-          </tr> 
-          <tr>
-            <th>Nome</th>
-            <th>Cognome</th>
-            <th>Codice Fiscale</th>
-          </tr>            
-          <tr>
-            <td width="25%" class="bg-warning">            
-              <input type="text" [(ngModel)]="newOspite.nome">
-            </td>  
-            <td width="25%" class="bg-warning">            
-              <input type="text" [(ngModel)]="newOspite.cognome">
-            </td> 
-            <td width="25%" class="bg-warning">            
-              <input type="text" [(ngModel)]="newOspite.codiceFiscale">
-            </td>
-            <td>
-              <button (click)="aggiungiOspite()" class="btn btn-primary">AGGIUNGI OSPITE</button>
-            </td>       
-          </tr>
-      </table> 
+      <table class="table table-sm table-bordered">
+        <tr class="bg-warning p-4">
+          <th>Tipologia Camera</th>
+        </tr>
+        <tr *ngFor="let x of arrTipologiaCamera">
+          <td width="25%">
+            {{x.id}}
+          </td>
+          <td width="25%">
+            {{x.nome}}
+          </td>
+          <td width="25%">
+            {{x.costoC}} €
+          </td>
+          <td>
+            <button (click)="getListaCamera(x)" class="btn btn-primary">SELEZIONA TIPOLOGIA</button>
+          </td>
+        </tr>
+      </table>
 
-        <table class="table table-sm table-bordered">
-          <tr class="bg-warning p-4">
-            <th>Camere</th>
-          </tr>
-          <tr *ngFor="let x of tipologiaCamera.arrCamera">
-            <td width="25%">
-              {{x.id}}
-            </td>
-            <td width="25%">
-              {{x.descrizione}}
-            </td>
-             <td>
-              <button (click)="cameraXTipologia(x.id)" class="btn btn-primary">PRENOTA CAMERA</button>
-            </td>
-          </tr>
-        </table>
-        
-        
-          <table class="table table-sm table-bordered">
-            <tr class="bg-warning p-4">
-              <th>Cliente</th>
-            </tr>
-            <tr>              
-              <td width="25%">
-                {{datiUtenteService.cliente.user}}
-              </td> 
-              <td width="25%">
-                {{datiUtenteService.cliente.cognome}}
-              </td>
-              <td width="25%">
-                {{datiUtenteService.cliente.password}}
-              </td>           
-            </tr>
-          </table>  
+      <table class="table table-sm table-bordered">
+        <tr class="bg-warning p-4">
+          <th>SERVIZI EXTRA</th>
+        </tr>
+        <tr *ngFor="let x of arrServizio">
+          <td width="25%">
+            {{x.id}}
+          </td>
+          <td width="25%">
+            {{x.descrizione}}
+          </td>
+          <td width="25%">
+            {{x.costo}} €
+          </td>
+          <input type="checkbox" (change)="onChange(x, $event)" class="btn btn-primary">
+        </tr>
+      </table>
 
-         
+      <table class="table table-sm table-bordered">
+        <tr class="bg-warning p-4">
+          <th>OSPITE</th>
+        </tr>
+        <tr>
+          <th>Nome</th>
+          <th>Cognome</th>
+          <th>Codice Fiscale</th>
+        </tr>
+        <tr>
+          <td width="25%" class="bg-warning">
+            <input type="text" [(ngModel)]="newOspite.nome">
+          </td>
+          <td width="25%" class="bg-warning">
+            <input type="text" [(ngModel)]="newOspite.cognome">
+          </td>
+          <td width="25%" class="bg-warning">
+            <input type="text" [(ngModel)]="newOspite.codiceFiscale">
+          </td>
+          <td>
+            <button (click)="aggiungiOspite()" class="btn btn-primary">AGGIUNGI OSPITE</button>
+          </td>
+        </tr>
+      </table>
 
-       </div>
+      <table class="table table-sm table-bordered">
+        <tr class="bg-warning p-4">
+        </tr>
+        <tr>
+
+          <td width="25%">
+            {{newOspite.nome}}
+          </td>
+          <td width="25%">
+            {{newOspite.cognome}}
+          </td>
+          <td width="25%">
+            {{newOspite.codiceFiscale}}
+          </td>
+          <button (click)="selezionaOspite(newOspite)" class="btn btn-primary">SELEZIONA OSPITE</button>
+
+        </tr>
+      </table>
+
+      <table class="table table-sm table-bordered">
+        <tr class="bg-warning p-4">
+          <th>Camere</th>
+        </tr>
+        <tr *ngFor="let x of tipologiaCamera.arrCamera">
+          <td width="25%">
+            {{x.id}}
+          </td>
+          <td width="25%">
+            {{x.descrizione}}
+          </td>
+          <td>
+            <button (click)="cameraXTipologia(x.id)" class="btn btn-primary">PRENOTA CAMERA</button>
+          </td>
+        </tr>
+      </table>
+
+
+      <table class="table table-sm table-bordered">
+        <tr class="bg-warning p-4">
+          <th>Cliente</th>
+        </tr>
+        <tr>
+          <td width="25%">
+            {{datiUtenteService.cliente.user}}
+          </td>
+          <td width="25%">
+            {{datiUtenteService.cliente.cognome}}
+          </td>
+          <td width="25%">
+            {{datiUtenteService.cliente.password}}
+          </td>
+        </tr>
+      </table>
+
+    </div>
   </div>
 </body>

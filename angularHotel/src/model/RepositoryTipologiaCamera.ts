@@ -9,12 +9,12 @@ import { TipologiaCamera } from "./TipologiaCamera";
 
 @Injectable({
     providedIn: 'root'
-  }) 
-export class RepositoryTipologiaCamera{
-    constructor(        
-        public srvHTTPService:SrvHTTPService
-    ){}
-    getLista():Observable<TipologiaCamera[]>{
+})
+export class RepositoryTipologiaCamera {
+    constructor(
+        public srvHTTPService: SrvHTTPService
+    ) { }
+    getLista(): Observable<TipologiaCamera[]> {
         return this.srvHTTPService.findAll()
     }
 }

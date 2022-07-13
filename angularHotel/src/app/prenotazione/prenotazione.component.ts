@@ -1,4 +1,3 @@
-import { getLocaleFirstDayOfWeek } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Camera } from 'src/model/Camera';
 import { Cliente } from 'src/model/Cliente';
@@ -34,10 +33,11 @@ export class PrenotazioneComponent implements OnInit {
   dataFine!: Date
   servizio!: Servizio
   arrServizio2: Servizio[] = []
-  arrServizio3: Servizio[] = []
+  arrServizio3: Servizio[] = [] //ARR DI RESET IN CAMERAXTIPOLOGIA()
   prezzoUltimo!: number
   newOspite: Ospite = new Ospite(0)
   arrOspite: Ospite[] = []
+  arrOspite2: Ospite[] = []
 
   constructor(
     public repositoryPrenotazione: RepositoryPrenotazione,
@@ -47,14 +47,14 @@ export class PrenotazioneComponent implements OnInit {
     public datiPrenotazioneCameraService: DatiPrenotazioneCameraService,
     public repositoryServizio: RepositoryServizio,
     public repositoryOspite: RepositoryOspite,
-    public router:Router
+    public router: Router
 
   ) { }
 
   ngOnInit() {
     this.getLista(),
-      this.getListaServizio()
-
+      this.getListaServizio(),
+      this.getListaOspite()
   }
 
   getLista() {
@@ -75,21 +75,18 @@ export class PrenotazioneComponent implements OnInit {
 
 
   cameraXTipologia(id: number) {
-    console.log("*** ARR_OSPITE DI CAMERAXTIPOLOGIA() " + this.arrOspite.length)  
+
     let prezzoUltimo2 = this.prezzoUltimo! + this.tipologiaCamera.costoC!
     console.log("*** PREZZO ULTIMO2 " + prezzoUltimo2)
-    let newPrenotazione1 = new PrenotazioneCamera(0, this.dataInizio, this.dataFine, prezzoUltimo2, new Camera(id, new TipologiaCamera(1, "", 0), ""), new Cliente(this.datiUtenteService.cliente.user), this.arrServizio2, this.arrOspite)
+    let newPrenotazione1 = new PrenotazioneCamera(0, this.dataInizio, this.dataFine, prezzoUltimo2, new Camera(id, new TipologiaCamera(1, "", 0), ""), new Cliente(this.datiUtenteService.cliente.user), this.arrServizio2, this.arrOspite2)
     this.repositoryPrenotazione.prenota(newPrenotazione1).subscribe(risp => { this.prenotazione = risp; console.log("*** ultimo id " + this.prenotazione.id); })
-    console.log("*** " + this.dataInizio + " " + this.dataFine + " " + this.datiUtenteService.cliente.user + " prenotazione: " + this.prenotazione.arrOspite?.length)
-    //this.newOspite.prenotazioneCamera = this.prenotazione
-    // this.repositoryOspite.registraOspite(this.newOspite).subscribe(risp=>{this.newOspite=risp;})
+    console.log("*** " + this.dataInizio + " " + this.dataFine + " " + this.datiUtenteService.cliente.user)
+
     this.newPrenotazione = new PrenotazioneCamera(0, new Date(), new Date(), 100, new Camera(0, new TipologiaCamera(0, "", 0), ""), new Cliente(""), this.arrServizio3)
-    this.newOspite= new Ospite(0, "", "", "") //per azzerare l'ospite
-    console.log("*** ARR_OSPITE DI FINE CAMERAXTIPOLOGIA()  " + this.arrOspite.length)
-    this.arrOspite = [] //per azzerare l'array
+    this.newOspite = new Ospite(0, "", "", "") //per azzerare l'ospite    
     alert("prenotazione effettuata con successo. Premere Ok per accedere all'area cliente")
     this.router.navigate(['/areaCliente'])
-      
+
   }
   getListaServizio() {
     this.repositoryServizio.getListaServizio()
@@ -97,6 +94,12 @@ export class PrenotazioneComponent implements OnInit {
         this.arrServizio = risp;
         console.log("*** LISTA SERVIZIO " + this.arrServizio.length + " " + this.arrServizio + " " + this.datiPrenotazioneCameraService.prenotazioneCamera.id)
       })
+  }
+
+  getListaOspite() {
+    this.repositoryOspite.getListaOspite().subscribe(risp => {
+      this.arrOspite = risp;
+    })
   }
 
 
@@ -119,11 +122,14 @@ export class PrenotazioneComponent implements OnInit {
     return this.prezzoUltimo = prezzoFor
   }
 
-  
-  aggiungiOspite(){
-    this.arrOspite.push(this.newOspite)
-    console.log("*** ARR_OSPITE DI AGGIUNGIOSPITE() " + this.arrOspite.length)
-    
+
+
+
+  aggiungiOspite() {
+    this.repositoryOspite.registraOspite(this.newOspite).subscribe(risp => { this.newOspite = risp; })
   }
- 
+  selezionaOspite(ospite: Ospite) {
+    this.arrOspite2.push(ospite)
+  }
+
 }

@@ -9,11 +9,11 @@ import { DatiUtenteService } from '../Servizi/dati-utente.service';
 export class CameraComponent implements OnInit {
 
   constructor(
-    public datiUtenteService:DatiUtenteService
+    public datiUtenteService: DatiUtenteService
   ) { }
 
   ngOnInit(): void {
   }
-  
-  addCamera(){}
+
+  addCamera() { }
 }

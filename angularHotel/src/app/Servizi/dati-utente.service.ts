@@ -6,6 +6,6 @@ import { Cliente } from 'src/model/Cliente';
   providedIn: 'root'
 })
 export class DatiUtenteService {
-  public cliente:Cliente = new Cliente("")
+  public cliente: Cliente = new Cliente("")
   constructor() { }
 }

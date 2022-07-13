@@ -9,10 +9,10 @@ import { DatiUtenteService } from '../Servizi/dati-utente.service';
 export class DeluxeComponent implements OnInit {
 
   constructor(
-    public datiUtenteService:DatiUtenteService
+    public datiUtenteService: DatiUtenteService
   ) { }
 
   ngOnInit(): void {
   }
-  prenota(){}
+  prenota() { }
 }

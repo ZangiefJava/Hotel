@@ -1,49 +1,61 @@
 <body background="https://img.freepik.com/free-vector/abstract-texture-background_91008-369.jpg?w=2000">
-<p>Salve {{datiUtenteService.cliente.user}}</p>
-<table class="table table-sm table-bordered">
+  <p>Salve {{datiUtenteService.cliente.user}}</p>
+  <table class="table table-sm table-bordered">
     <tr class="bg-warning p-4">
       <th>nome</th>
       <th>cognome</th>
       <th>Password</th>
       <th>Prenotazioni</th>
     </tr>
-      <td width="25%">
-        {{cliente.nome}}  
-      </td>
-      <td width="25%">
-        {{cliente.cognome}}  
-      </td>    
-      <td width="25%">
-        {{cliente.password}}  
-      </td>      
-      <td>
-        <button (click)="getListaPrenotazione(cliente)" class="btn btn-primary">VISUALIZZA PRENOTAZIONI</button>
-      </td>
-  </table>  
+    <td width="25%">
+      {{cliente.nome}}
+    </td>
+    <td width="25%">
+      {{cliente.cognome}}
+    </td>
+    <td width="25%">
+      {{cliente.password}}
+    </td>
+    <td>
+      <button (click)="getListaPrenotazione(cliente)" class="btn btn-primary">VISUALIZZA PRENOTAZIONI</button>
+    </td>
+  </table>
 
   <table class="table table-sm table-bordered">
     <tr class="bg-warning p-4">
       <th>Le mie prenotazioni</th>
-    </tr>
-    <tr *ngFor="let x of arrPrenotazione">
-        <td width="25%">
-            {{x.id}}
-          </td>
-          <td width="25%">
-            {{x.dataInizio}}  
-          </td>
-          <td width="25%">
-            {{x.dataFine}}
-          </td> 
-          <td width="25%">
-            {{x.prezzo}} € 
-          </td>
-          <td width="25%" *ngFor="let s of x.arrServizio">
-            {{s.descrizione}}
-          </td> 
-    </tr>
-  </table> 
-   
-</body>
+    <tr>
+      <th>Codice prenotazione</th>
+      <th>Data inizio</th>
+      <th>Data Fine</th>
+      <th>Prezzo</th>
+      <th>Ospiti</th>
+      <th>Servizi extra</th>
 
- 
+    </tr>
+
+    <tr *ngFor="let x of arrPrenotazione">
+      <td style="width: 3cm;">
+        {{x.id}}
+      </td>
+      <td style="width: 2cm;">
+        {{x.dataInizio}}
+      </td>
+      <td style="width: 2cm;">
+        {{x.dataFine}}
+      </td>
+      <td style="width: 1cm;">
+        {{x.prezzo}} €
+      </td>
+      <td style="width: 2cm;" *ngFor="let o of x.arrOspite">
+        {{o.cognome}}
+      </td>
+      <div></div>
+      <td style="width: 4cm;" *ngFor="let s of x.arrServizio">
+        {{s.descrizione}}
+      </td>
+
+    </tr>
+  </table>
+
+</body>

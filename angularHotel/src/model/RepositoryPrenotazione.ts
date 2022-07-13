@@ -7,15 +7,15 @@ import { PrenotazioneCamera } from "./PrenotazioneCamera";
 
 @Injectable({
     providedIn: 'root'
-  }) 
-export class RepositoryPrenotazione{
-    constructor(        
-        public srvHTTPService:SrvHTTPService
-    ){}
-    prenota(prenotazione:PrenotazioneCamera):Observable<PrenotazioneCamera>{                
+})
+export class RepositoryPrenotazione {
+    constructor(
+        public srvHTTPService: SrvHTTPService
+    ) { }
+    prenota(prenotazione: PrenotazioneCamera): Observable<PrenotazioneCamera> {
         return this.srvHTTPService.prenota(prenotazione)
     }
-    getListaPrenotazione(cliente:Cliente):Observable<PrenotazioneCamera[]>{
+    getListaPrenotazione(cliente: Cliente): Observable<PrenotazioneCamera[]> {
         return this.srvHTTPService.findAllPrenotazione(cliente)
     }
 }

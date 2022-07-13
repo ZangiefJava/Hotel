@@ -7,7 +7,7 @@ export class Ospite {
         public codiceFiscale?: string,
         public nome?: string,
         public cognome?: string,
-        public prenotazioneCamera?:PrenotazioneCamera
+        public prenotazioneCamera?:PrenotazioneCamera[]
     ) { }   
 
 }

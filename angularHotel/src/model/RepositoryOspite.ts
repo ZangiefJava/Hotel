@@ -8,17 +8,17 @@ import { Ospite } from "./Ospite";
 
 @Injectable({
     providedIn: 'root'
-  }) 
-export class RepositoryOspite{
-    constructor(        
-        public srvHTTPService:SrvHTTPService
-    ){}
-    
-    registraOspite(ospite:Ospite):Observable<Ospite>{
+})
+export class RepositoryOspite {
+    constructor(
+        public srvHTTPService: SrvHTTPService
+    ) { }
+
+    registraOspite(ospite: Ospite): Observable<Ospite> {
         return this.srvHTTPService.registraOspite(ospite)
     }
-    
-    getListaOspite():Observable<Ospite[]>{
+
+    getListaOspite(): Observable<Ospite[]> {
         return this.srvHTTPService.findAllOspite()
     }
 }

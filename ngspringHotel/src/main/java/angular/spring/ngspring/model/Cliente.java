@@ -71,7 +71,7 @@ public class Cliente  implements Serializable{
     @Override
     public String toString()
     {
-        return "Cliente{" + "user=" + user + ", password=" + password + ", nome=" + nome + ", cognome=" + cognome + ", arrPrenotazione=" + arrPrenotazione + '}';
+        return "Cliente{" + "user=" + user + ", password=" + password + ", nome=" + nome + ", cognome=" + cognome + '}';
     }
 
     public List<PrenotazioneCamera> getArrPrenotazione()

@@ -8,6 +8,6 @@ import { PrenotazioneCamera } from 'src/model/PrenotazioneCamera';
 })
 export class DatiPrenotazioneCameraService {
 
-  public prenotazioneCamera:PrenotazioneCamera = new PrenotazioneCamera(0)
+  public prenotazioneCamera: PrenotazioneCamera = new PrenotazioneCamera(0)
   constructor() { }
 }

@@ -5,6 +5,6 @@ export class Camera {
         public id: number,
         public tipologiaCamera: TipologiaCamera,
         public descrizione?: string,
-        
+
     ) { }
 }

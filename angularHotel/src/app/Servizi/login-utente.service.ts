@@ -13,14 +13,14 @@ export class LoginUtenteService {
   url: string = "http://localhost:8080"
 
   constructor(
-    private http:HttpClient
+    private http: HttpClient
   ) { }
 
-  verificaEsistenza(cliente:Cliente):Observable<Cliente>{
-    console.log("*** "+ cliente.user )
-    return this.http.post<Cliente>(this.url+"/findById", cliente)
-     
+  verificaEsistenza(cliente: Cliente): Observable<Cliente> {
+    console.log("*** " + cliente.user)
+    return this.http.post<Cliente>(this.url + "/findById", cliente)
+
   }
-  
+
 }
 

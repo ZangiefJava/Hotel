@@ -11,17 +11,18 @@ import { DatiUtenteService } from '../Servizi/dati-utente.service';
 export class RegistrazioneComponent implements OnInit {
 
   constructor(
-    public repositoryCliente:RepositoryCliente,
-    public datiUtenteService:DatiUtenteService
+    public repositoryCliente: RepositoryCliente,
+    public datiUtenteService: DatiUtenteService
   ) { }
-  newCliente:Cliente= new Cliente("","", "", "")
-  arrCliente:Cliente[] =[]
+  newCliente: Cliente = new Cliente("", "", "", "")
+  arrCliente: Cliente[] = []
   ngOnInit(): void {
   }
-  registra(){
-    this.repositoryCliente.registra(this.newCliente).subscribe(risp=>{this.arrCliente=risp;})
-    console.log("*** "+this.newCliente+ this.newCliente.user)
-    this.newCliente= new Cliente("","", "", "")
+  registra() {
+    this.repositoryCliente.registra(this.newCliente).subscribe(risp => { this.arrCliente = risp; })
+    console.log("*** " + this.newCliente + this.newCliente.user)
+    this.newCliente = new Cliente("", "", "", "")
+    alert("registrazione effettuata con successo!")
   }
 
 }
